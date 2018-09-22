@@ -30,8 +30,8 @@ if(isset($_GET['action'])){
             echo $controller->$metodo();
         }
     }else{
-      // $controller =  new TareasController();
-      // echo $controller->Home();
+       $controller =  new AccionesController();
+       echo $controller->Home();
     }
 }
  ?>
