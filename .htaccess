@@ -5,4 +5,4 @@
   RewriteRule ^[css|img|js].*$ - [L]
 
   RewriteRule ^(.*)$ route.php?action=$1 [QSA,L]
-  <IfModule>
+</IfModule>

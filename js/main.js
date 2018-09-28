@@ -1,6 +1,6 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", function() {
-  cargarPropagandas();
+  // cargarPropagandas();
   cargarInicio();
   let botonInicio = document.querySelectorAll(".js-LoadInicio");
   botonInicio.forEach(e=> e.addEventListener("click", cargarInicio));
@@ -19,23 +19,23 @@ document.addEventListener("DOMContentLoaded", function() {
     _contenedor.innerHTML = "<h1 class:'cargando'>Loading...</h1>";
   }
 
-  function cargarPropagandas() {
-    let propagandas = document.querySelector(".propagandas");
-    fetch("/tpespecial/html/propagandas.html").then( function(response){
-      if(response.ok){
-        response.text().then(t=> propagandas.innerHTML = t);
-      }else{
-        propagandas.innerHTML = "Error 404 file not found :("
-      }
-    }).catch(function(response){
-      propagandas.innerHTML = "No se pudieron cargar las propagandas :("
-    });
-  }
+  // function cargarPropagandas() {
+  //   let propagandas = document.querySelector(".propagandas");
+  //   fetch("propagandas").then( function(response){
+  //     if(response.ok){
+  //       response.text().then(t=> propagandas.innerHTML = t);
+  //     }else{
+  //       propagandas.innerHTML = "Error 404 file not found :("
+  //     }
+  //   }).catch(function(response){
+  //     propagandas.innerHTML = "No se pudieron cargar las propagandas :("
+  //   });
+  // }
 
   function cargarInicio(){
     let contenedor = document.querySelector(".contenedor");
     cargando();
-    fetch("/tpespecial/html/inicio.html").then( function(response){
+    fetch("homecontent").then( function(response){
       if(response.ok){
         response.text().then(t=> contenedor.innerHTML = t);
       }else{
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
   function cargarMemes(){
     let contenedor = document.querySelector(".contenedor");
     cargando();
-    fetch("/tpespecial/html/memes.html").then( function(response){
+    fetch("memes").then( function(response){
       if(response.ok){
         response.text().then(t=> document.querySelector(".contenedor").innerHTML = t);
       }else{
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
   function cargarInfo(){
     let contenedor = document.querySelector(".contenedor");
     cargando();
-    fetch("/tpespecial/html/info.html").then( function(response){
+    fetch("info").then( function(response){
       if(response.ok){
         response.text().then(t=> document.querySelector(".contenedor").innerHTML = t);
       }else{
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
   function cargarPersonajes(){
     let contenedor = document.querySelector(".contenedor");
     cargando();
-    fetch("/tpespecial/html/personajes.html").then( function(response){
+    fetch("personajes").then( function(response){
       if(response.ok){
         response.text().then(t=>{contenedor.innerHTML = t;
           mostrarTabla()
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
   function cargarShopping(){
     let contenedor = document.querySelector(".contenedor");
     cargando();
-    fetch("/tpespecial/html/shopping.php").then( function(response){
+    fetch("shopping").then( function(response){
       if(response.ok){
         response.text().then(t=> contenedor.innerHTML = t);
       }else{

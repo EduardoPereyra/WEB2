@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.33, created on 2018-09-28 21:07:41
+  from 'C:\xampp\htdocs\tpespecial\WEB2\templates\header.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5bae7bfdbf3085_74858380',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '8b43d31aa6a7ec59535a50b40a3c0f6138861a35' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\tpespecial\\WEB2\\templates\\header.tpl',
+      1 => 1538161655,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5bae7bfdbf3085_74858380 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
@@ -33,13 +56,5 @@
   </nav>
   <div class="row">
     <div class="contenedor col-12 col-md-9">
-    </div>
-    <div class="propagandas col-12 col-md-3">
-    </div>
-  </div>
-  <footer class="pie">&copy Wiki-Simpsons SA</footer>
-  <script src="js/main.js" charset="utf-8"></script>
-  <script src="js/jquery.min.js" charset="utf-8"></script>
-  <script src="js/bootstrap.min.js" charset="utf-8"></script>
-</body>
-</html>
+<?php }
+}

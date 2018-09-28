@@ -1,3 +1,4 @@
+
     <article class="">
       <h2>Matt Groening</h2>
       <p>Matthew Abram Groening, nacido en Portland, 15 de febrero de 1954​ es un dibujante, productor de televisión y escritor estadounidense, conocido principalmente por ser el creador de Los Simpson. Es también el creador de Futurama. y autor de la tira cómica semanal La vida en el Inframundo, que Groening publicaba en el semanario de Licorice Pizza, una tienda en la cual trabajaba. Hizo su primera venta como caricaturista profesional a la revista Wet en 1978. El propio Matt decidió ponerle punto y final en 2010.</p>

@@ -1,7 +1,7 @@
 <?php
 
 require_once "config/ConfigApp.php";
-// require_once "controller/TareasController.php";
+require_once "controller\AccionesController.php";
 
 function parseURL($url)
 {

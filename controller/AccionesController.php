@@ -9,13 +9,34 @@ class AccionesController
 
   function __construct()
   {
-    $this->view = new =IndexView();
+    $this->view = new IndexView();
     // $this->model = new IndexModel();
     // $this->Titulo = "Los Simpsons";
   }
 
   function Home(){
-      $Tareas = $this->model->GetTareas();
-      $this->view->Mostrar($this->Titulo, $Tareas);
+      $this->view->MostrarHome();
   }
+
+  function Homecontent(){
+      $this->view->MostrarHomeContent();
+  }
+
+  function Info(){
+      $this->view->MostrarInfo();
+  }
+
+  function Memes(){
+      $this->view->MostrarMemes();
+  }
+
+  function Personajes(){
+      $this->view->MostrarPersonajes();
+  }
+
+  function Shopping(){
+      $this->view->MostrarShopping();
+  }
+
+}
 ?>

@@ -1,5 +1,27 @@
+<?php
+/* Smarty version 3.1.33, created on 2018-09-28 21:39:42
+  from 'C:\xampp\htdocs\tpespecial\WEB2\templates\memes.tpl' */
 
-    <article>
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5bae837e798810_46065043',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '37123987def6d54a8d622982f220aa8218571027' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\tpespecial\\WEB2\\templates\\memes.tpl',
+      1 => 1538162558,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5bae837e798810_46065043 (Smarty_Internal_Template $_smarty_tpl) {
+?>    <article>
       <p>La mayoría de los personajes principales y secundarios de la serie tienen un latiguillo.​ Entre las expresiones más notables se encuentra el gruñido de fastidio de Homer «D'oh!» («¡Ouh!» o «¡Ouch!» en español), el «excelente» del Sr. Burns o la risa de Nelson Muntz «¡Ja! ¡ja!». Algunos de los latiguillos del personaje de Bart, como «¡Ay, caramba!», aparecieron en camisetas durante los primeros años de la serie. Sin embargo, los guionistas fueron suprimiendo su uso tras adquirir fama por el merchandising y han ido reduciendo su número en las últimas temporadas. Su uso humorístico fue parodiado en el episodio Bart Gets Famous, en el que Bart adquiere una inmensa popularidad tras decir en «El show de Krusty» la frase «I didn't do it», traducido como «Yo no he sido» en España y «Yo no fui» en Hispanoamérica.</p>
       <p>La serie también inserta referentes culturales que cubren un amplio espectro de la sociedad estadounidense.​ Dichas referencias vienen del cine, la televisión, música, literatura, ciencia y hechos históricos.​ Los animadores aprovechan cualquier ocasión para introducir chistes ocultos en forma de textos incoherentes en lugares insospechados como carteles o periódicos. El público a menudo no percibe todos los chistes visuales en un primer visionado. Kristin Thompson argumenta que Los Simpson contiene «una batería de referencias culturales, una caracterización intencionadamente inconsistente y una considerable auto-reflexión acerca de las convenciones televisivas y el estatus del programa».</p>
     </article>
@@ -119,3 +141,5 @@
           </div>
         </div>
     </article>
+<?php }
+}

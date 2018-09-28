@@ -1,3 +1,4 @@
+
   <div class="table-personajes">
     <table>
       <thead>
