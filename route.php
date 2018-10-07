@@ -2,6 +2,7 @@
 
 require_once "config/ConfigApp.php";
 require_once "controller\AccionesController.php";
+require_once "controller\LoginController.php";
 
 function parseURL($url)
 {
@@ -34,4 +35,4 @@ if(isset($_GET['action'])){
        echo $controller->Home();
     }
 }
- ?>
+?>

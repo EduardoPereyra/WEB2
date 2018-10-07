@@ -38,5 +38,9 @@ class AccionesController
       $this->view->MostrarShopping();
   }
 
+  function Shoppingadmin(){
+      $this->view->MostrarShoppingadmin();
+  }
+
 }
 ?>

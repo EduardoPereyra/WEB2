@@ -22,13 +22,7 @@
         <button class="btn btn-default col-lg nav-item nav-link active js-LoadInfo" href="#">Info</button>
         <button class="btn btn-default col-lg nav-item nav-link active js-LoadShopping" href="#">Shopping</button>
       </div>
-      <div class="col-sm-8">
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Usuario">
-          <input class="form-control mr-sm-2" type="password" placeholder="Clave">
-          <button class="login btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-        </form>
-      </div>
+      <button class="login btn btn-outline-success my-2 my-sm-0">Login</button>
     </div>
   </nav>
   <div class="row">

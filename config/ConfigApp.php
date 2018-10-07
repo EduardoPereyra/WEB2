@@ -11,7 +11,10 @@
       'memes' => 'AccionesController#Memes',
       'personajes' => 'AccionesController#Personajes',
       'propagandas' => 'AccionesController#Propagandas',
-      'shopping' => 'AccionesController#Shopping'
+      'shopping' => 'AccionesController#Shopping',
+      'shoppingadmin' => 'AccionesController#Shoppingadmin',
+      'login' => 'LoginController#Login'
+
     ];
   }
 ?>

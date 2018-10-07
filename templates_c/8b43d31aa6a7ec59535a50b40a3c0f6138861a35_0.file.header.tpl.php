@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-09-28 21:07:41
+/* Smarty version 3.1.33, created on 2018-10-08 00:39:44
   from 'C:\xampp\htdocs\tpespecial\WEB2\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bae7bfdbf3085_74858380',
+  'unifunc' => 'content_5bba8b30aa26e9_86570110',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8b43d31aa6a7ec59535a50b40a3c0f6138861a35' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpespecial\\WEB2\\templates\\header.tpl',
-      1 => 1538161655,
+      1 => 1538951982,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bae7bfdbf3085_74858380 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bba8b30aa26e9_86570110 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -45,13 +45,7 @@ function content_5bae7bfdbf3085_74858380 (Smarty_Internal_Template $_smarty_tpl)
         <button class="btn btn-default col-lg nav-item nav-link active js-LoadInfo" href="#">Info</button>
         <button class="btn btn-default col-lg nav-item nav-link active js-LoadShopping" href="#">Shopping</button>
       </div>
-      <div class="col-sm-8">
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Usuario">
-          <input class="form-control mr-sm-2" type="password" placeholder="Clave">
-          <button class="login btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-        </form>
-      </div>
+      <button class="login btn btn-outline-success my-2 my-sm-0">Login</button>
     </div>
   </nav>
   <div class="row">

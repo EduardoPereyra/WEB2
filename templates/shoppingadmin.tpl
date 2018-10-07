@@ -1,5 +1,5 @@
 <table>
   <tr>
-    <td>no admin</td>
+    <td>admin<td>
   </tr>
 </table>
