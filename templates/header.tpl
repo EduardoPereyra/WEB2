@@ -22,7 +22,7 @@
         <button class="btn btn-default col-lg nav-item nav-link active js-LoadInfo" href="#">Info</button>
         <button class="btn btn-default col-lg nav-item nav-link active js-LoadShopping" href="#">Shopping</button>
       </div>
-      <button class="login btn btn-outline-success my-2 my-sm-0">Login</button>
+      <button class="js-LoadLogin login btn btn-outline-success my-2 my-sm-0" href="login">Login</button>
     </div>
   </nav>
   <div class="row">

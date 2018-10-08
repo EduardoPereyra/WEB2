@@ -12,6 +12,10 @@ document.addEventListener("DOMContentLoaded", function() {
   botonInfo.forEach(e=> e.addEventListener("click", cargarInfo));
   let botonShopping = document.querySelectorAll(".js-LoadShopping");
   botonShopping.forEach(e=> e.addEventListener("click", cargarShopping));
+
+  let botonLogin = document.querySelectorAll(".js-LoadLogin");
+  botonLogin.forEach(e=> e.addEventListener("click", cargarLogin));
+
   let url = "http://web-unicen.herokuapp.com/api/groups/22/WikiSimpsonss";
 
   function cargando() {
@@ -104,6 +108,20 @@ document.addEventListener("DOMContentLoaded", function() {
     let contenedor = document.querySelector(".contenedor");
     cargando();
     fetch("shopping").then( function(response){
+      if(response.ok){
+        response.text().then(t=> contenedor.innerHTML = t);
+      }else{
+        contenedor.innerHTML = "Error 404 file not found :(";
+      }
+    }).catch(function(response) {
+      contenedor.innerHTML = "No estas conectado a internet :("
+    });
+  }
+
+  function cargarLogin(){
+    let contenedor = document.querySelector(".contenedor");
+    cargando();
+    fetch("login").then( function(response){
       if(response.ok){
         response.text().then(t=> contenedor.innerHTML = t);
       }else{

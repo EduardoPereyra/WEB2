@@ -9,19 +9,14 @@ class SecuredController
       }
       $_SESSION['LAST_ACTIVITY'] = time();
     }else{
-      header(home);
+      header(HOME);
     }
   }
 
   function logout(){
     session_start();
     session_destroy();
-    header(home);
+    header(HOME);
   }
-
-
-
-
-
 }
  ?>

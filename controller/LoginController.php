@@ -4,7 +4,7 @@ require_once "./view/LoginView.php";
 require_once "./model/UsuarioModel.php";
 
 
-class LoginController
+class LoginController 
 {
   private $view;
   private $model;
@@ -15,33 +15,33 @@ class LoginController
     $this->model = new UsuarioModel();
   }
 
-  function login(){
+  function Login(){
     $this->view->mostrarLogin();
   }
 
-  function logout()
+  function Logout()
   {
     session_start();
     session_destroy();
-    header(home);
+    header(HOME);
   }
 
-  function verificarLogin()
+  function VerificarLogin()
   {
-    $usuario = $_POST["usarioId"];
+    $usuario = $_POST["usuarioId"];
     $clave = $_POST["claveId"];
-    $dbUser = $this->model->getUsuario($usuario);
+    $dbUser = $this->model->GetUsuario($usuario);
 
     if(isset($dbUser)){
       if(password_verify($clave, $dbUser[0]["clave"])){
         session_start();
         $_SESSION["Usuario"] = $usuario;
-        header(shoppingadmin);
+        header(SHOPPINGADMIN);
       }else{
-      $this->view->mostrarLogin("Contraña Incorrecta");
+      $this->view->MostrarLogin("Contraña Incorrecta");
       }
     }else{
-    $this->view->mostrarLogin("Usuario Incorrecto");
+    $this->view->MostrarLogin("Usuario Incorrecto");
     }
   }
 }

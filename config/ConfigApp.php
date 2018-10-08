@@ -1,4 +1,11 @@
 <?php
+
+define('HOME', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+define('LOGIN', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/login');
+define('LOGOUT', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/logout');
+define('SHOPPINGADMIN', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/shoppingadmin');
+
+
   class ConfigApp
   {
     public static $ACTION = 'action';
@@ -13,8 +20,9 @@
       'propagandas' => 'AccionesController#Propagandas',
       'shopping' => 'AccionesController#Shopping',
       'shoppingadmin' => 'AccionesController#Shoppingadmin',
-      'login' => 'LoginController#Login'
-
+      'login' => 'LoginController#Login',
+      'logout' => 'LoginController#Logout',
+      'verificarlogin' => 'LoginController#VerificarLogin'
     ];
   }
 ?>

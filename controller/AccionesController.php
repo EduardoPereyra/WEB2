@@ -1,7 +1,8 @@
 <?php
 require_once  "./view/IndexView.php";
+require_once  "SecuredController.php";
 
-class AccionesController
+class AccionesController extends SecuredController
 {
   private $view;
   private $model;

@@ -9,7 +9,7 @@ class LoginView
     $this->Smarty = new Smarty();
   }
 
-  function mostrarLogin($message = ''){
+  function MostrarLogin($message = ''){
     $this->Smarty->assign('message',$message);
     $this->Smarty->display('templates/login.tpl');
   }
