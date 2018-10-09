@@ -23,6 +23,7 @@ define('SHOPPINGADMIN', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_
       'login' => 'LoginController#Login',
       'logout' => 'LoginController#Logout',
       'verificarlogin' => 'LoginController#VerificarLogin'
+
     ];
   }
 ?>

@@ -4,7 +4,7 @@ require_once "./view/LoginView.php";
 require_once "./model/UsuarioModel.php";
 
 
-class LoginController 
+class LoginController
 {
   private $view;
   private $model;
@@ -28,13 +28,15 @@ class LoginController
 
   function VerificarLogin()
   {
-    $usuario = $_POST["usuarioId"];
-    $clave = $_POST["claveId"];
-    $dbUser = $this->model->GetUsuario($usuario);
-
-    if(isset($dbUser)){
-      if(password_verify($clave, $dbUser[0]["clave"])){
-        session_start();
+    $usuario = $_POST['usuarioId'];
+    $clave = $_POST['claveId'];
+    // session_start();
+    // if(isset($_SESSION[$usuario])){
+    //   header(SHOPPINGADMIN);
+    // }
+    $dbUsuario = $this->model->GetUser($usuario);
+    if(!empty($dbUsuario)){
+      if(password_verify($clave, $dbUsuario[0]['clave'])){
         $_SESSION["Usuario"] = $usuario;
         header(SHOPPINGADMIN);
       }else{
