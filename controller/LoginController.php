@@ -40,7 +40,7 @@ class LoginController
         $_SESSION["Usuario"] = $usuario;
         header(SHOPPINGADMIN);
       }else{
-      $this->view->MostrarLogin("Contraña Incorrecta");
+      $this->view->MostrarLogin("Contraseña Incorrecta");
       }
     }else{
     $this->view->MostrarLogin("Usuario Incorrecto");

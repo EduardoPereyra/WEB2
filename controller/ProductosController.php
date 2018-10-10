@@ -1,77 +1,58 @@
 <?php
 
-require_once  "./view/TareasView.php";
-require_once  "./model/TareasModel.php";
+require_once  "./view/ProductosView.php";
+require_once  "./model/ProductosModel.php";
 require_once  "SecuredController.php";
 
-class TareasController extends SecuredController
+class ProductosController extends SecuredController
 {
   private $view;
   private $model;
-  private $Titulo;
 
   function __construct()
   {
     parent::__construct();
 
-    $this->view = new TareasView();
-    $this->model = new TareasModel();
-    $this->Titulo = "Lista de Tareas Controlador 1";
+    $this->view = new ProductosView();
+    $this->model = new ProductosModel();
   }
 
-  function Home(){
-      $Tareas = $this->model->GetTareas();
-      $this->view->Mostrar($this->Titulo, $Tareas);
+  function MostrarProductos(){
+      $productos = $this->model->GetProductos();
+      $this->view->Mostrar($productos);
   }
 
-  function EditarTarea($param){
-      $id_tarea = $param[0];
+  function EditarProducto($param){
+      $id_producto = $param[0];
 
-      $Tarea = $this->model->GetTarea($id_tarea);
-      $this->view->MostrarEditarTarea("Editar Tarea", $Tarea);
+      $producto = $this->model->GetProducto($id_producto);
+      $this->view->MostrarEditarProducto($producto);
   }
 
-  function InsertTarea(){
-    $titulo = $_POST["tituloForm"];
-    $descripcion = $_POST["descripcionForm"];
+  function InsertProducto(){
+    $producto = $_POST["producto"];
+    $precio = $_POST["precio"];
+    $id_categoria = $_POST["id_categoria"];
 
-    if(isset($_POST["completadaForm"])){
-      $completada = 1;
-    }else{
-      $completada = 0;
-    }
-
-    $this->model->InsertarTarea($titulo,$descripcion,$completada);
+    $this->model->InsertarProducto($producto,$precio,$id_categoria);
 
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
-  function GuardarEditarTarea(){
-    $id_tarea = $_POST["idForm"];
-    $titulo = $_POST["tituloForm"];
-    $descripcion = $_POST["descripcionForm"];
+  function GuardarEditarProducto(){
+    $id_producto = $_POST["id_producto"];
+    $producto = $_POST["producto"];
+    $precio = $_POST["precio"];
+    $id_categoria = $_POST["id_categoria"];
 
-
-    if(isset($_POST["completadaForm"])){
-      $completada = 1;
-    }else{
-      $completada = 0;
-    }
-
-    $this->model->GuardarEditarTarea($titulo,$descripcion,$completada,$id_tarea);
+    $this->model->GuardarEditarProducto($producto,$precio,$id_categoria,$id_producto);
 
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
-  function BorrarTarea($param){
-    $this->model->BorrarTarea($param[0]);
+  function BorrarProducto($param){
+    $this->model->BorrarProducto($param[0]);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-  }
-
-  function CompletarTarea($param){
-    $this->model->CompletarTarea($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-
   }
 }
 

@@ -27,33 +27,36 @@
       </thead>
       <tbody>
         <tr>
-          <td>Hola</td>
-          <td>Hola</td>
-          <td>Hola</td>
-          <td>Hola</td>
-          <td><a href="editarproducto">Editar</a> <a href="borrarproducto">Borrar</a> <a href="modificarproducto">Modificar</a></td>
+          {foreach from=$Productos item=producto}
+            <td>{$producto['id_producto']}</td>
+            <td>{$producto['producto']}</td>
+            <td>{$producto['precio']}</td>
+            <td>{$producto['id_categoria']}</td>
+            <td><a href="editarproducto">Editar</a><a href="borrarproducto">Borrar</a><a href="modificarproducto">Modificar</a></td>
+          {/foreach}
         </tr>
       </tbody>
     </table>
-    <form class="" action="" method="post">
+  </div>
+    <form action="agregarproducto" method="post" action="agregar">
+      <input type="hidden" class="form-control" name="id_producto">
       <div class="form-group">
-        <label for="inputAddress">Address</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        <label for="producto">Producto</label>
+        <input type="text" class="form-control" name="producto" placeholder="Remera">
       </div>
       <div class="form-group">
-        <label for="inputAddress">Address</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        <label for="precio">Precio</label>
+        <input type="text" class="form-control" name="precio" placeholder="999.99">
       </div>
         <div class="form-group col-md-4">
-          <label for="inputState">State</label>
-          <select id="inputState" class="form-control">
-            <option selected>Choose...</option>
+          <label for="id_categoria">Id_categoria</label>
+          <select name="id_categoria" class="form-control">
+            <option selected>...</option>
             <option>...</option>
           </select>
         </div>
+        <button class="login btn btn-outline-success my-2 my-sm-0">Agregar</button>
     </form>
-
-  </div>
 </body>
 <footer class="pie">&copy Wiki-Simpsons SA</footer>
 <script src="js/main.js" charset="utf-8"></script>

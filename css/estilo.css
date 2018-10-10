@@ -191,3 +191,8 @@ body{
   background-size: cover;
   padding: 18px;
 }
+
+.contenedor-login{
+  margin-top: 5%;
+  margin-left: 25%;
+}
