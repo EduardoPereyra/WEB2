@@ -1,8 +1,10 @@
 <?php
 
-require_once "config/ConfigApp.php";
+require_once "config\ConfigApp.php";
 require_once "controller\AccionesController.php";
 require_once "controller\LoginController.php";
+require_once "controller\ProductosController.php";
+require_once "controller\CategoriasController.php";
 
 function parseURL($url)
 {

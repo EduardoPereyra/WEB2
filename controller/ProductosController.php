@@ -1,42 +1,33 @@
 <?php
 
+//Fijarnos si esta seteado el form
 require_once  "./view/ProductosView.php";
 require_once  "./model/ProductosModel.php";
-require_once  "SecuredController.php";
 
-class ProductosController extends SecuredController
+class ProductosController
 {
   private $view;
   private $model;
 
   function __construct()
   {
-    parent::__construct();
-
     $this->view = new ProductosView();
     $this->model = new ProductosModel();
   }
 
-  function MostrarProductos(){
-      $productos = $this->model->GetProductos();
-      $this->view->Mostrar($productos);
-  }
-
   function EditarProducto($param){
       $id_producto = $param[0];
-
       $producto = $this->model->GetProducto($id_producto);
       $this->view->MostrarEditarProducto($producto);
   }
 
-  function InsertProducto(){
+  function AgregarProducto(){
     $producto = $_POST["producto"];
     $precio = $_POST["precio"];
     $id_categoria = $_POST["id_categoria"];
+    $this->model->AgregarProducto($producto,$precio,$id_categoria);
 
-    $this->model->InsertarProducto($producto,$precio,$id_categoria);
-
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    header(SHOPPINGADMIN);
   }
 
   function GuardarEditarProducto(){
@@ -47,12 +38,12 @@ class ProductosController extends SecuredController
 
     $this->model->GuardarEditarProducto($producto,$precio,$id_categoria,$id_producto);
 
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    header(SHOPPINGADMIN);
   }
 
   function BorrarProducto($param){
     $this->model->BorrarProducto($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    header(SHOPPINGADMIN);
   }
 }
 

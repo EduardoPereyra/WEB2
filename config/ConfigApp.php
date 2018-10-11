@@ -23,11 +23,14 @@ define('SHOPPINGADMIN', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_
       'login' => 'LoginController#Login',
       'logout' => 'LoginController#Logout',
       'verificarlogin' => 'LoginController#VerificarLogin',
-      'editar' =>'ProductosController#EditarProducto',
-      'borrar' => 'ProductosController#BorrarProducto',
-      'insertar' => 'ProductosController#InsertarProducto',
-      'guardareditar' => 'ProductosController#GuardarEditarProducto'
-
+      'agregarproducto' => 'ProductosController#AgregarProducto',
+      'editarproducto' =>'ProductosController#EditarProducto',
+      'borrarproducto' => 'ProductosController#BorrarProducto',
+      'guardareditarproducto' => 'ProductosController#GuardarEditarProducto',
+      'agregarcategoria' => 'CategoriasController#AgregarCategoria',
+      'editarcategoria' =>'CategoriasController#EditarCategoria',
+      'borrarcategoria' => 'CategoriasController#BorrarCategoria',
+      'guardareditarcategoria' => 'CategoriasController#GuardarEditarCategoria'
     ];
   }
 ?>

@@ -1,5 +1,5 @@
 <?php
-require('libs/Smarty.class.php');
+require_once('libs/Smarty.class.php');
 
 class ProductosView
 {
@@ -10,10 +10,11 @@ class ProductosView
     $this->Smarty = new Smarty();
   }
 
-  function Mostrar($Productos){
+  function MostrarTablas($Categorias,$Productos){
     $this->Smarty->assign('Productos',$Productos);
+    $this->Smarty->assign('Categorias',$Categorias);
     //$smarty->debugging = true;
-    $this->Smarty->display('templates/shoppingtpl.tpl');
+    $this->Smarty->display('templates/shoppingadmin.tpl');
   }
 
   function MostrarEditarProducto($Producto){

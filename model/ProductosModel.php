@@ -1,6 +1,6 @@
 <?php
 
-class ProductoModel
+class ProductosModel
 {
   private $db;
 
@@ -27,7 +27,7 @@ class ProductoModel
       return $sentencia->fetch(PDO::FETCH_ASSOC);
   }
 
-  function InsertarProducto($producto,$precio,$id_categoria){
+  function AgregarProducto($producto,$precio,$id_categoria){
     $sentencia = $this->db->prepare("INSERT INTO producto(producto, precio, id_categoria) VALUES(?,?,?)");
     $sentencia->execute(array($producto,$precio,$id_categoria));
   }

@@ -11,9 +11,30 @@
 <body>
   <h2>TABLA SHOPPING</h2>
   <form method="post" class="form-inline my-2 my-lg-0" action="logout">
-    <button class="login btn btn-outline-success my-2 my-sm-0">Logout</button>
+    <button class="logout login btn btn-outline-success my-2 my-sm-0">Logout</button>
   </form>
 
+  <div class="table-personajes">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Id_categoria</th>
+          <th scope="col">Tipo_producto</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          {foreach from=$Categorias item=categoria}
+            <td>{$categoria['id_categoria']}</td>
+            <td>{$categoria['tipo_producto']}</td>
+            <td><a href="editarcategoria">Editar</a> <a href="borrarcategoria">Borrar</a> <a href="modificarcategoria">Modificar</a></td>
+      </tr>
+          {/foreach}
+      </tbody>
+    </table>
+  </div>
+  <br>
   <div class="table-personajes">
     <table>
       <thead>
@@ -32,13 +53,14 @@
             <td>{$producto['producto']}</td>
             <td>{$producto['precio']}</td>
             <td>{$producto['id_categoria']}</td>
-            <td><a href="editarproducto">Editar</a><a href="borrarproducto">Borrar</a><a href="modificarproducto">Modificar</a></td>
+            <td><a href="editarproducto">Editar</a> <a href="borrarproducto">Borrar</a> <a href="modificarproducto">Modificar</a></td>
+      </tr>
           {/foreach}
-        </tr>
       </tbody>
     </table>
   </div>
-    <form action="agregarproducto" method="post" action="agregar">
+    <h3>Agregar Producto</h3>
+    <form method="post" action="agregarproducto">
       <input type="hidden" class="form-control" name="id_producto">
       <div class="form-group">
         <label for="producto">Producto</label>
@@ -51,10 +73,21 @@
         <div class="form-group col-md-4">
           <label for="id_categoria">Id_categoria</label>
           <select name="id_categoria" class="form-control">
-            <option selected>...</option>
-            <option>...</option>
+            {foreach from=$Categorias item=categoria}
+            <option>{$categoria['id_categoria']}</option>
+            {/foreach}
           </select>
         </div>
+        <button class="login btn btn-outline-success my-2 my-sm-0">Agregar</button>
+    </form>
+
+    <h3>Agregar Categoria</h3>
+    <form method="post" action="agregarcategoria">
+      <input type="hidden" class="form-control" name="id_categoria">
+      <div class="form-group">
+        <label for="tipo_producto">Tipo_producto</label>
+        <input type="text" class="form-control" name="tipo_producto" placeholder="tipo_producto">
+      </div>
         <button class="login btn btn-outline-success my-2 my-sm-0">Agregar</button>
     </form>
 </body>

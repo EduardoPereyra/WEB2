@@ -1,6 +1,6 @@
 <?php
 
-class CategoriaModel
+class CategoriasModel
 {
   private $db;
 
@@ -27,9 +27,9 @@ class CategoriaModel
       return $sentencia->fetch(PDO::FETCH_ASSOC);
   }
 
-  function InsertarCategoria($id_categoria,$tipo_producto){
-    $sentencia = $this->db->prepare("INSERT INTO categoria(id_categoria, tipo_producto) VALUES(?,?)");
-    $sentencia->execute(array($id_categoria,$tipo_producto));
+  function AgregarCategoria($tipo_producto){
+    $sentencia = $this->db->prepare("INSERT INTO categoria(tipo_producto) VALUES(?)");
+    $sentencia->execute(array($tipo_producto));
   }
 
   function BorrarCategoria($id_categoria){

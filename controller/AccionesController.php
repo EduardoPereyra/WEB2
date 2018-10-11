@@ -1,18 +1,25 @@
 <?php
-require_once  "./view/IndexView.php";
-require_once  "SecuredController.php";
+require_once "./view/IndexView.php";
+require_once "./view/CategoriasView.php";
+require_once "./view/ProductosView.php";
+require_once "./model/CategoriasModel.php";
+require_once "./model/ProductosModel.php";
 
-class AccionesController extends SecuredController
+class AccionesController
 {
   private $view;
-  private $model;
-  private $Titulo;
+  private $viewp;
+  private $modelp;
+  private $viewc;
+  private $modelc;
 
   function __construct()
   {
     $this->view = new IndexView();
-    // $this->model = new IndexModel();
-    // $this->Titulo = "Los Simpsons";
+    $this->viewp = new ProductosView();
+    $this->modelp = new ProductosModel();
+    $this->viewc = new CategoriasView();
+    $this->modelc = new CategoriasModel();
   }
 
   function Home(){
@@ -40,8 +47,9 @@ class AccionesController extends SecuredController
   }
 
   function Shoppingadmin(){
-      $this->view->MostrarShoppingadmin();
+      $productos = $this->modelp->GetProductos();
+      $categorias = $this->modelc->GetCategorias();
+      $this->viewp->MostrarTablas($categorias,$productos);
   }
-
 }
 ?>

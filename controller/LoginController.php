@@ -30,10 +30,10 @@ class LoginController
   {
     $usuario = $_POST['usuarioId'];
     $clave = $_POST['claveId'];
-    // session_start();
-    // if(isset($_SESSION[$usuario])){
-    //   header(SHOPPINGADMIN);
-    // }
+    session_start();
+    if(isset($_SESSION[$usuario])){
+      header(SHOPPINGADMIN);
+    }
     $dbUsuario = $this->model->GetUser($usuario);
     if(!empty($dbUsuario)){
       if(password_verify($clave, $dbUsuario[0]['clave'])){
