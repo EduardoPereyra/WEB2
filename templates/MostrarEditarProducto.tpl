@@ -4,34 +4,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Wiki Simpsons</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/estilo.css">
-  <link rel="shortcut icon" href="images/minidona.ico">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/estilo.css">
+  <link rel="shortcut icon" href="../images/minidona.ico">
 </head>
 <body>
-  <form action="agregarproducto" method="post" action="{$home}/guardarEditar">
+  <form method="post" action="{$shoppingadmin}/guardareditarproducto">
     <input type="hidden" class="form-control" name="id_producto" value="{$Producto["id_producto"]}">
     <div class="form-group">
       <label for="producto">Producto</label>
-      <input type="text" class="form-control" name="producto" value="{$Producto["producto"]}" placeholder="Remera">
+      <input type="text" class="form-control" name="producto" value="{$Producto["producto"]}" placeholder="{$Producto["producto"]}">
     </div>
     <div class="form-group">
       <label for="precio">Precio</label>
-      <input type="text" class="form-control" name="precio" value="{$Producto["precio"]}" placeholder="999.99">
+      <input type="text" class="form-control" name="precio" value="{$Producto["precio"]}" placeholder="{$Producto["precio"]}">
     </div>
       <div class="form-group col-md-4">
         <label for="id_categoria">Id_categoria</label>
-        <select name="id_categoria" class="form-control" value="{$Producto["id_categoria"]}">
-          <option selected>1</option>
-          <option>2</option>
+        <select name="id_categoria" class="form-control">
+          {foreach from=$Categorias item=categoria}
+          <option>{$categoria['id_categoria']}</option>
+          {/foreach}
         </select>
       </div>
       <button class="login btn btn-outline-success my-2 my-sm-0">Editar Producto</button>
   </form>
 </body>
 <footer class="pie">&copy Wiki-Simpsons SA</footer>
-<script src="js/main.js" charset="utf-8"></script>
-<script src="js/jquery.min.js" charset="utf-8"></script>
-<script src="js/bootstrap.min.js" charset="utf-8"></script>
+<script src="../js/main.js" charset="utf-8"></script>
+<script src="../js/jquery.min.js" charset="utf-8"></script>
+<script src="../js/bootstrap.min.js" charset="utf-8"></script>
 </body>
 </html>

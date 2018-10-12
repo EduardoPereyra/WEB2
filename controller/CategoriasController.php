@@ -23,16 +23,18 @@ class CategoriasController
 
   function AgregarCategoria(){
     $tipo_producto = $_POST["tipo_producto"];
-    $this->model->AgregarCategoria($tipo_producto);
-
+    if(($tipo_producto)!== ""){
+      $this->model->AgregarCategoria($tipo_producto);
+    }
     header(SHOPPINGADMIN);
   }
 
   function GuardarEditarCategoria(){
     $id_categoria = $_POST["id_categoria"];
     $tipo_producto = $_POST["tipo_producto"];
-
-    $this->model->GuardarEditarCategoria($id_categoria,$tipo_producto);
+    if(($id_categoria!== "")&&($tipo_producto !== "")){
+      $this->model->GuardarEditarCategoria($id_categoria,$tipo_producto);
+    }
 
     header(SHOPPINGADMIN);
   }

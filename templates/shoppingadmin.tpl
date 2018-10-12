@@ -28,7 +28,7 @@
           {foreach from=$Categorias item=categoria}
             <td>{$categoria['id_categoria']}</td>
             <td>{$categoria['tipo_producto']}</td>
-            <td><a href="editarcategoria">Editar</a> <a href="borrarcategoria">Borrar</a> <a href="modificarcategoria">Modificar</a></td>
+            <td><a href="editarcategoria/{$categoria['id_categoria']}">Editar</a> <a href="borrarcategoria/{$categoria['id_categoria']}">Borrar</a></td>
       </tr>
           {/foreach}
       </tbody>
@@ -53,7 +53,7 @@
             <td>{$producto['producto']}</td>
             <td>{$producto['precio']}</td>
             <td>{$producto['id_categoria']}</td>
-            <td><a href="editarproducto">Editar</a> <a href="borrarproducto">Borrar</a> <a href="modificarproducto">Modificar</a></td>
+            <td><a href="editarproducto/{$producto['id_producto']}">Editar</a> <a href="borrarproducto/{$producto['id_producto']}">Borrar</a></td>
       </tr>
           {/foreach}
       </tbody>

@@ -43,13 +43,20 @@ class AccionesController
   }
 
   function Shopping(){
-      $this->view->MostrarShopping();
+    $productos = $this->modelp->GetProductos();
+    $categorias = $this->modelc->GetCategorias();
+    $this->view->MostrarShopping($categorias,$productos);
   }
 
   function Shoppingadmin(){
+    session_start();
+    if(isset($_SESSION["Usuario"])){
       $productos = $this->modelp->GetProductos();
       $categorias = $this->modelc->GetCategorias();
       $this->viewp->MostrarTablas($categorias,$productos);
+    }else{
+      header(LOGIN);
+    }
   }
 }
 ?>

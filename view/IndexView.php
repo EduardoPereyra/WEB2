@@ -30,8 +30,10 @@ class IndexView
       $smarty->display('templates/personajes.tpl');
     }
 
-    function MostrarShopping(){
+    function MostrarShopping($categorias,$productos){
       $smarty = new Smarty();
+      $smarty->assign('Categorias',$categorias);
+      $smarty->assign('Productos',$productos);
       $smarty->display('templates/shopping.tpl');
     }
 

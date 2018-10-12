@@ -28,22 +28,26 @@ class LoginController
 
   function VerificarLogin()
   {
-    $usuario = $_POST['usuarioId'];
-    $clave = $_POST['claveId'];
-    session_start();
-    if(isset($_SESSION[$usuario])){
-      header(SHOPPINGADMIN);
-    }
-    $dbUsuario = $this->model->GetUser($usuario);
-    if(!empty($dbUsuario)){
-      if(password_verify($clave, $dbUsuario[0]['clave'])){
-        $_SESSION["Usuario"] = $usuario;
+    if(null !== ($_POST['usuarioId']) && null !== ($_POST['claveId'])){
+      $usuario = $_POST['usuarioId'];
+      $clave = $_POST['claveId'];
+      session_start();
+      if(isset($_SESSION[$usuario])){
         header(SHOPPINGADMIN);
+      }
+      $dbUsuario = $this->model->GetUser($usuario);
+      if(!empty($dbUsuario)){
+        if(password_verify($clave, $dbUsuario[0]['clave'])){
+          $_SESSION["Usuario"] = $usuario;
+          header(SHOPPINGADMIN);
+        }else{
+          $this->view->MostrarLogin("Contraseña Incorrecta");
+        }
       }else{
-      $this->view->MostrarLogin("Contraseña Incorrecta");
+        $this->view->MostrarLogin("Usuario Incorrecto");
       }
     }else{
-    $this->view->MostrarLogin("Usuario Incorrecto");
+      $this->view->MostrarLogin("Debe Ingresarse Primero");
     }
   }
 }

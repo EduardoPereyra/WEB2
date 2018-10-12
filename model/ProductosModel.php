@@ -38,7 +38,7 @@ class ProductosModel
   }
 
   function GuardarEditarProducto($producto,$precio,$id_categoria,$id_producto){
-    $sentencia = $this->db->prepare( "UPDATE producto SET producto = ?, precio = ?, id_categoria = ? where id_producto=?");
+    $sentencia = $this->db->prepare( "UPDATE producto SET producto = ?, precio = ?, id_categoria = ? WHERE id_producto=?");
     $sentencia->execute(array($producto,$precio,$id_categoria,$id_producto));
   }
 }
