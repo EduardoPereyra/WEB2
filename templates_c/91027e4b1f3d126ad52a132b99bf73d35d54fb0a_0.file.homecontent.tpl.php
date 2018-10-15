@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-12 18:12:38
+/* Smarty version 3.1.33, created on 2018-10-15 20:24:11
   from 'C:\xampp\htdocs\tpespecial\WEB2\templates\homecontent.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bc0c7f65887d4_82447572',
+  'unifunc' => 'content_5bc4db4b1de3c6_73613902',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '91027e4b1f3d126ad52a132b99bf73d35d54fb0a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpespecial\\WEB2\\templates\\homecontent.tpl',
-      1 => 1538164034,
+      1 => 1539627847,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bc0c7f65887d4_82447572 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bc4db4b1de3c6_73613902 (Smarty_Internal_Template $_smarty_tpl) {
 ?>  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -52,7 +52,7 @@ function content_5bc0c7f65887d4_82447572 (Smarty_Internal_Template $_smarty_tpl)
   <h3>O sino llama a +54 9 2494-746848</h3>
   <h3>Ubicación:</h3>
   <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m11!1m3!1d4531.897720692538!2d-120.41638658337962!3d38.0201604578362!2m2!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8090c6dffa322249%3A0x3562b2d9aa3ac0d4!2sSpringfield%2C+California+95370%2C+EE.+UU.!5e1!3m2!1ses!2sar!4v1529173428857" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-  <h3>Juga nuestro nuevo juego: <a href="WEB2/html/Inicio-Juego.html" target="_blank">MEMO-SIMPSONS</a></h3>
+  <h3>Juga nuestro nuevo juego: <a href="memo-simpsons" target="_blank">MEMO-SIMPSONS</a></h3>
 </div>
 <?php }
 }

@@ -36,13 +36,13 @@ function muestraArregloConMarcas(){ //Muestra las cartas para jugar
   let arregloImg = document.querySelectorAll('.marcas');
   creaArrBoolean();
   for ( let i = 0; i <= 4; i++){
-    arregloImg[0].src = '../images/carta1.jpg';
+    arregloImg[0].src = 'images/carta1.jpg';
     let x = arregloBoolean[i] ;
     if (x === 1){
-      arregloImg[i].src = '../images/carta1.jpg';
+      arregloImg[i].src = 'images/carta1.jpg';
     }
     else{
-      arregloImg[i].src = '../images/carta2.jpg';
+      arregloImg[i].src = 'images/carta2.jpg';
     }
   }
 }
@@ -157,13 +157,13 @@ function muestraArrConDorsos(){ //Muestra los dorsos y las cartas ya adivinadas 
   for ( let i = 0; i <= 4; i++){
     let x = arrConDorsos[i] ;
     if (x === 0){
-      arregloImg[i].src = '../images/carta.jpg';
+      arregloImg[i].src = 'images/carta.jpg';
     }
     else{
       if (x === 1) {
-        arregloImg[i].src = '../images/carta1.jpg';
+        arregloImg[i].src = 'images/carta1.jpg';
       }else {
-        arregloImg[i].src = '../images/carta2.jpg';
+        arregloImg[i].src = 'images/carta2.jpg';
       }
 
     }

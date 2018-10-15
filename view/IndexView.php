@@ -41,6 +41,11 @@ class IndexView
       $smarty = new Smarty();
       $smarty->display('templates/shoppingadmin.tpl');
     }
+
+    function MostrarJuego(){
+      $smarty = new Smarty();
+      $smarty->display('templates/iniciojuego.tpl');
+    }
 }
 
  ?>

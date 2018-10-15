@@ -59,5 +59,9 @@ class AccionesController
       header(LOGIN);
     }
   }
+
+  function Juego(){
+    $this->view->MostrarJuego();
+  }
 }
 ?>

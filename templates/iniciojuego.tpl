@@ -2,8 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/Estilojuego.css">
-    <link rel="shortcut icon" href="../images/minidona.ico">
+    <link rel="stylesheet" href="css/Estilojuego.css">
+    <link rel="shortcut icon" href="images/minidona.ico">
     <title>MEMO-SIMPSONS</title>
   </head>
   <body>
@@ -54,7 +54,7 @@
         </form>
       </div>
       <div class="confirmar">
-        <button class="boton ocultar" type="button" name="confirmar" id="botonconfirmar"> CONFIRMAR <br><img class="homeroconfirmar" src="../images/Homero.jpg"> </button>
+        <button class="boton ocultar" type="button" name="confirmar" id="botonconfirmar"> CONFIRMAR <br><img class="homeroconfirmar" src="images/Homero.jpg"> </button>
       </div>
     </div>
     <div class="tablas">
@@ -90,8 +90,8 @@
         </tr>
     </table>
   </div>
-  <h4>&copy Wiki-Simpsons SA</h4>
+  <h4 class="pie">&copy Wiki-Simpsons SA</h4>
   </div>
-    <script type="text/javascript" src="../js/MainJuego.js"> </script>
+    <script type="text/javascript" src="js/MainJuego.js"> </script>
   </body>
 </html>

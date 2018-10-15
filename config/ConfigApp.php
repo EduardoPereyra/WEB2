@@ -30,7 +30,8 @@ define('SHOPPINGADMIN', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_
       'agregarcategoria' => 'CategoriasController#AgregarCategoria',
       'editarcategoria' =>'CategoriasController#EditarCategoria',
       'borrarcategoria' => 'CategoriasController#BorrarCategoria',
-      'guardareditarcategoria' => 'CategoriasController#GuardarEditarCategoria'
+      'guardareditarcategoria' => 'CategoriasController#GuardarEditarCategoria',
+      'memo-simpsons' => 'AccionesController#Juego',
     ];
   }
 ?>
