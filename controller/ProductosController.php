@@ -18,36 +18,56 @@ class ProductosController
   }
 
   function EditarProducto($param){
-      $id_producto = $param[0];
-      $categorias = $this->modelc->GetCategorias();
-      $producto = $this->model->GetProducto($id_producto);
-      $this->view->MostrarEditarProducto($producto,$categorias);
+      session_start();
+      if(isset($_SESSION["Usuario"])){
+        $id_producto = $param[0];
+        $categorias = $this->modelc->GetCategorias();
+        $producto = $this->model->GetProducto($id_producto);
+        $this->view->MostrarEditarProducto($producto,$categorias);
+      }else{
+        header(LOGIN);
+      }
   }
 
   function AgregarProducto(){
-    $producto = $_POST["producto"];
-    $precio = $_POST["precio"];
-    $id_categoria = $_POST["id_categoria"];
-    if(($producto !== "")&&($precio !== "")&&($id_categoria !== "")&&($precio > 0)){
-      $this->model->AgregarProducto($producto,$precio,$id_categoria);
+    session_start();
+    if(isset($_SESSION["Usuario"])){
+      $producto = $_POST["producto"];
+      $precio = $_POST["precio"];
+      $id_categoria = $_POST["id_categoria"];
+      if(($producto !== "")&&($precio !== "")&&($id_categoria !== "")&&($precio > 0)){
+        $this->model->AgregarProducto($producto,$precio,$id_categoria);
+      }
+      header(SHOPPINGADMIN);
+    }else{
+      header(LOGIN);
     }
-    header(SHOPPINGADMIN);
   }
 
   function GuardarEditarProducto(){
-    $id_producto = $_POST["id_producto"];
-    $producto = $_POST["producto"];
-    $precio = $_POST["precio"];
-    $id_categoria = $_POST["id_categoria"];
-    if(($id_producto !== "")&&($producto !== "")&&($precio !== "")&&($id_categoria !== "")&&($precio > 0)){
-      $this->model->GuardarEditarProducto($producto,$precio,$id_categoria,$id_producto);
+    session_start();
+    if(isset($_SESSION["Usuario"])){
+      $id_producto = $_POST["id_producto"];
+      $producto = $_POST["producto"];
+      $precio = $_POST["precio"];
+      $id_categoria = $_POST["id_categoria"];
+      if(($id_producto !== "")&&($producto !== "")&&($precio !== "")&&($id_categoria !== "")&&($precio > 0)){
+        $this->model->GuardarEditarProducto($producto,$precio,$id_categoria,$id_producto);
+      }
+      header(SHOPPINGADMIN);
+    }else{
+      header(LOGIN);
     }
-    header(SHOPPINGADMIN);
   }
 
   function BorrarProducto($param){
-    $this->model->BorrarProducto($param[0]);
-    header(SHOPPINGADMIN);
+    session_start();
+    if(isset($_SESSION["Usuario"])){
+      $this->model->BorrarProducto($param[0]);
+      header(SHOPPINGADMIN);
+    }else{
+      header(LOGIN);
+    }
   }
 }
 

@@ -10,9 +10,10 @@ class ProductosView
     $this->Smarty = new Smarty();
   }
 
-  function MostrarTablas($Categorias,$Productos){
+  function MostrarTablas($Categorias,$Productos, $User){
     $this->Smarty->assign('Productos',$Productos);
     $this->Smarty->assign('Categorias',$Categorias);
+    $this->Smarty->assign('User',$User);
     //$smarty->debugging = true;
     $this->Smarty->display('templates/shoppingadmin.tpl');
   }

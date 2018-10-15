@@ -13,63 +13,67 @@
   <form method="post" class="form-inline my-2 my-lg-0" action="logout">
     <button class="logout login btn btn-outline-success my-2 my-sm-0">Logout</button>
   </form>
-
-  <div class="table-personajes">
-    <table>
-      <thead>
-        <tr>
-          <th scope="col">Id_categoria</th>
-          <th scope="col">Tipo_producto</th>
-          <th scope="col">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          {foreach from=$Categorias item=categoria}
+  <p><img class="icono" src="images/Homero.jpg" alt="Perfil">Bienvenido de nuevo {$User}!</p>
+  <div class="">
+    <div class="table-personajes table-catadm">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Id Categoria</th>
+            <th scope="col">Tipo de Producto</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {foreach from=$Categorias item=categoria}
             <td>{$categoria['id_categoria']}</td>
             <td>{$categoria['tipo_producto']}</td>
             <td><a href="editarcategoria/{$categoria['id_categoria']}">Editar</a> <a href="borrarcategoria/{$categoria['id_categoria']}">Borrar</a></td>
-      </tr>
+          </tr>
           {/foreach}
-      </tbody>
-    </table>
-  </div>
-  <br>
-  <div class="table-personajes">
-    <table>
-      <thead>
-        <tr>
-          <th scope="col">Id_producto</th>
-          <th scope="col">Producto</th>
-          <th scope="col">Precio</th>
-          <th scope="col">Id_categoria</th>
-          <th scope="col">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          {foreach from=$Productos item=producto}
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <div class="table-personajes table-prodadm">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Id Producto</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Id Categoria</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {foreach from=$Productos item=producto}
             <td>{$producto['id_producto']}</td>
             <td>{$producto['producto']}</td>
             <td>{$producto['precio']}</td>
             <td>{$producto['id_categoria']}</td>
             <td><a href="editarproducto/{$producto['id_producto']}">Editar</a> <a href="borrarproducto/{$producto['id_producto']}">Borrar</a></td>
-      </tr>
+          </tr>
           {/foreach}
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   </div>
-    <h3>Agregar Producto</h3>
-    <form method="post" action="agregarproducto">
-      <input type="hidden" class="form-control" name="id_producto">
-      <div class="form-group">
-        <label for="producto">Producto</label>
-        <input type="text" class="form-control" name="producto" placeholder="Remera">
-      </div>
-      <div class="form-group">
-        <label for="precio">Precio</label>
-        <input type="text" class="form-control" name="precio" placeholder="999.99">
-      </div>
+  <div class="formulario">
+    <div class="formularioizq">
+      <h3>Agregar Producto</h3>
+      <form method="post" action="agregarproducto">
+        <input type="hidden" class="form-control" name="id_producto">
+        <div class="form-group">
+          <label for="producto">Producto</label>
+          <input type="text" class="form-control" name="producto" placeholder="Remera">
+        </div>
+        <div class="form-group">
+          <label for="precio">Precio</label>
+          <input type="text" class="form-control" name="precio" placeholder="999.99">
+        </div>
         <div class="form-group col-md-4">
           <label for="id_categoria">Id_categoria</label>
           <select name="id_categoria" class="form-control">
@@ -79,17 +83,20 @@
           </select>
         </div>
         <button class="login btn btn-outline-success my-2 my-sm-0">Agregar</button>
-    </form>
-
-    <h3>Agregar Categoria</h3>
-    <form method="post" action="agregarcategoria">
-      <input type="hidden" class="form-control" name="id_categoria">
-      <div class="form-group">
-        <label for="tipo_producto">Tipo_producto</label>
-        <input type="text" class="form-control" name="tipo_producto" placeholder="tipo_producto">
-      </div>
+      </form>
+    </div>
+    <div class="formularioder">
+      <h3>Agregar Categoria</h3>
+      <form method="post" action="agregarcategoria">
+        <input type="hidden" class="form-control" name="id_categoria">
+        <div class="form-group">
+          <label for="tipo_producto">Tipo_producto</label>
+          <input type="text" class="form-control" name="tipo_producto" placeholder="tipo_producto">
+        </div>
         <button class="login btn btn-outline-success my-2 my-sm-0">Agregar</button>
-    </form>
+      </form>
+    </div>
+  </div>
 </body>
 <footer class="pie">&copy Wiki-Simpsons SA</footer>
 <script src="js/main.js" charset="utf-8"></script>

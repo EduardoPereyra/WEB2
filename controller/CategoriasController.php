@@ -16,33 +16,54 @@ class CategoriasController
   }
 
   function EditarCategoria($param){
+    session_start();
+    if(isset($_SESSION["Usuario"])){
       $id_categoria = $param[0];
       $categoria = $this->model->GetCategoria($id_categoria);
       $this->view->MostrarEditarCategoria($categoria);
+    }else{
+      header(LOGIN);
+    }
   }
 
   function AgregarCategoria(){
-    $tipo_producto = $_POST["tipo_producto"];
-    if(($tipo_producto)!== ""){
-      $this->model->AgregarCategoria($tipo_producto);
+    session_start();
+    if(isset($_SESSION["Usuario"])){
+      $tipo_producto = $_POST["tipo_producto"];
+      if(($tipo_producto)!== ""){
+        $this->model->AgregarCategoria($tipo_producto);
+      }
+      header(SHOPPINGADMIN);
+    }else{
+      header(LOGIN);
     }
-    header(SHOPPINGADMIN);
   }
 
   function GuardarEditarCategoria(){
-    $id_categoria = $_POST["id_categoria"];
-    $tipo_producto = $_POST["tipo_producto"];
-    if(($id_categoria!== "")&&($tipo_producto !== "")){
-      $this->model->GuardarEditarCategoria($id_categoria,$tipo_producto);
-    }
+    session_start();
+    if(isset($_SESSION["Usuario"])){
+      $id_categoria = $_POST["id_categoria"];
+      $tipo_producto = $_POST["tipo_producto"];
+      if(($id_categoria!== "")&&($tipo_producto !== "")){
+        $this->model->GuardarEditarCategoria($id_categoria,$tipo_producto);
+      }
 
-    header(SHOPPINGADMIN);
+      header(SHOPPINGADMIN);
+    }else{
+      header(LOGIN);
+    }
   }
 
   function BorrarCategoria($param){
-    $this->model->BorrarCategoria($param[0]);
-    header(SHOPPINGADMIN);
+    session_start();
+    if(isset($_SESSION["Usuario"])){
+      $this->model->BorrarCategoria($param[0]);
+      header(SHOPPINGADMIN);
+    }else{
+      header(LOGIN);
+    }
   }
+  
 }
 
  ?>

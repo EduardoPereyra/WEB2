@@ -51,9 +51,10 @@ class AccionesController
   function Shoppingadmin(){
     session_start();
     if(isset($_SESSION["Usuario"])){
+      $user = $_SESSION["Usuario"];
       $productos = $this->modelp->GetProductos();
       $categorias = $this->modelc->GetCategorias();
-      $this->viewp->MostrarTablas($categorias,$productos);
+      $this->viewp->MostrarTablas($categorias,$productos,$user);
     }else{
       header(LOGIN);
     }
