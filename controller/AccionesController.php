@@ -43,9 +43,8 @@ class AccionesController
   }
 
   function Shopping(){
-    $productos = $this->modelp->GetProductos();
-    $categorias = $this->modelc->GetCategorias();
-    $this->view->MostrarShopping($categorias,$productos);
+    $tabla = $this->modelp->GetTablaFusionada();
+    $this->view->MostrarShopping($tabla);
   }
 
   function Shoppingadmin(){
@@ -62,6 +61,16 @@ class AccionesController
 
   function Juego(){
     $this->view->MostrarJuego();
+  }
+
+  function TablaOrdenada(){
+    $tabla = $this->modelp->GetTablaOrdenada();
+    $this->view->MostrarTablaOrdenada($tabla);
+  }
+
+  function Producto($param){
+    $producto = $this->modelp->GetProductoSelecionado($param[0],$param[1]);
+    $this->view->MostrarProducto($producto);
   }
 }
 ?>

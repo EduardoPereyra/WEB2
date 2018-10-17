@@ -30,10 +30,9 @@ class IndexView
       $smarty->display('templates/personajes.tpl');
     }
 
-    function MostrarShopping($categorias,$productos){
+    function MostrarShopping($tabla){
       $smarty = new Smarty();
-      $smarty->assign('Categorias',$categorias);
-      $smarty->assign('Productos',$productos);
+      $smarty->assign('Tabla',$tabla);
       $smarty->display('templates/shopping.tpl');
     }
 
@@ -45,6 +44,29 @@ class IndexView
     function MostrarJuego(){
       $smarty = new Smarty();
       $smarty->display('templates/iniciojuego.tpl');
+    }
+
+    function MostrarCategoria($id_categoria,$categoria,$productos){
+      $smarty = new Smarty();
+      $smarty->assign('Productos',$productos);
+      $smarty->assign('Id_categoria',$id_categoria);
+      $smarty->assign('Categoria',$categoria);
+      $smarty->assign('Raiz', 'http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      $smarty->display('templates/categoria.tpl');
+    }
+
+    function MostrarProducto($producto){
+      $smarty = new Smarty();
+      $smarty->assign('Producto',$producto);
+      $smarty->assign('Raiz', 'http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      $smarty->display('templates/producto.tpl');
+    }
+
+    function MostrarTablaOrdenada($tabla){
+      $smarty = new Smarty();
+      $smarty->assign('Tabla',$tabla);
+      $smarty->assign('Raiz', 'http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      $smarty->display('templates/tablaordenada.tpl');
     }
 }
 
