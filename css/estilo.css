@@ -240,3 +240,30 @@ body{
 .formularioizq{
   float: left;
 }
+
+#homerpage{
+  background-image: url(../images/homers-web-page.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 10%;
+}
+
+.juguetes-decoraciones{
+  float: right;
+  width: 500px;
+  margin-right: 10%;
+}
+
+.accesorios{
+  float: left;
+  width: 300px;
+  margin-top: 8% !important;
+}
+
+.ropa{
+  width: 320px;
+}
+
+.accesorios, .ropa{
+  margin: 2%;
+}

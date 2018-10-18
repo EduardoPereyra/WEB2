@@ -10,10 +10,14 @@
   <link rel="shortcut icon" href="images/minidona.ico">
 </head>
 <body>
-  <form method="post" class="form-inline my-2 my-lg-0" action="home">
-    <button class="logout login btn btn-outline-success my-2 my-sm-0">Volver</button>
-  </form>
-  <h3>Tabla Ordenada</h3>
+    <form method="post" class="form-inline my-2 my-lg-0" action="home">
+      <button class="logout login btn btn-outline-success my-2 my-sm-0">Volver</button>
+    </form>
+    <!-- <div class="homerpage">
+      <img src="images/homers-web-page.gif" alt="homerpage">
+    </div> -->
+    <div id="homerpage">
+    <h3>Tabla Ordenada</h3>
     <div class="table-personajes">
       <table>
         <thead>
@@ -28,17 +32,18 @@
         <tbody>
           <tr>
             {foreach from=$Tabla item=fila}
-              <td>{$fila['id_producto']}</td>
-              <td>{$fila['producto']}</td>
-              <td>{$fila['categoria']}</td>
-              <td>$ {$fila['precio']}</td>
-              <td>{$fila['id_categoria']}</td>
+            <td>{$fila['id_producto']}</td>
+            <td>{$fila['producto']}</td>
+            <td>{$fila['categoria']}</td>
+            <td>$ {$fila['precio']}</td>
+            <td>{$fila['id_categoria']}</td>
           </tr>
           {/foreach}
         </tbody>
       </table>
     </div>
-<footer class="pie">&copy Wiki-Simpsons SA</footer>
+    <footer class="pie">&copy Wiki-Simpsons SA</footer>
+</div>
 <script src="js/main.js" charset="utf-8"></script>
 <script src="js/jquery.min.js" charset="utf-8"></script>
 <script src="js/bootstrap.min.js" charset="utf-8"></script>

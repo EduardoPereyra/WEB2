@@ -36,6 +36,9 @@
         {/foreach}
       </tbody>
     </table>
+    <img class="juguetes-decoraciones" src="images/juguetes-decoraciones.png" alt="juguetes-decoraciones">
+    <img class="accesorios" src="images/accesorios.jpg" alt="accesorios">
+    <img class="ropa" src="images/ropa.jpg" alt="ropa">
   </div>
 <footer class="pie">&copy Wiki-Simpsons SA</footer>
 <script src="js/main.js" charset="utf-8"></script>
