@@ -1,5 +1,5 @@
 <?php
-
+Connect();
 require_once "config\ConfigApp.php";
 require_once "controller\AccionesController.php";
 require_once "controller\LoginController.php";
@@ -36,5 +36,18 @@ if(isset($_GET['action'])){
        $controller =  new AccionesController();
        echo $controller->Home();
     }
-}
+  }
+
+    function Connect(){
+      try {
+        new PDO('mysql:host=localhost;'
+        .'dbname=wikisimpsons;charset=utf8'
+        , 'root', '');
+      } catch (\Exception $e) {
+        $db = new PDO($dsn, 'root', '');
+        $sql = file_get_contents('database/wikisimpsons.sql');
+        $qr = $db->exec($sql);
+      }
+
+    }
 ?>

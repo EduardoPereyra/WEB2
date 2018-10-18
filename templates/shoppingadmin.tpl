@@ -52,7 +52,7 @@
             {foreach from=$Productos item=producto}
             <td>{$producto['id_producto']}</td>
             <td>{$producto['producto']}</td>
-            <td>{$producto['precio']}</td>
+            <td>$ {$producto['precio']}</td>
             <td>{$producto['id_categoria']}</td>
             <td><a href="editarproducto/{$producto['id_producto']}">Editar</a> <a href="borrarproducto/{$producto['id_producto']}">Borrar</a></td>
           </tr>

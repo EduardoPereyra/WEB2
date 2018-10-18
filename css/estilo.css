@@ -1,6 +1,8 @@
 body{
   background-color: #92d4f7;
   font-family: cursive;
+  overflow : hidden;
+  overflow-y : scroll;
 }
 
 .contenedor p{
