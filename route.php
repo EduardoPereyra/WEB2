@@ -43,8 +43,8 @@ function Connect(){
     new PDO('mysql:host=localhost;'
     .'dbname=wikisimpsons;charset=utf8'
     , 'root', '');
-  } catch (\Exception $e) {
-    $db = new PDO($dsn, 'root', '');
+  } catch (Exception $e) {
+    $db = new PDO('mysql:host=localhost;charset=utf8;', 'root', '');
     $sql = file_get_contents('database/wikisimpsons.sql');
     $qr = $db->exec($sql);
   }
