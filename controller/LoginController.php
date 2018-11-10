@@ -21,8 +21,8 @@ class LoginController
 
   function Logout()
   {
-    session_start();
-    session_destroy();
+    // session_start();
+    // session_destroy();
     header(HOME);
   }
 
@@ -38,7 +38,9 @@ class LoginController
       $dbUsuario = $this->model->GetUser($usuario);
       if(!empty($dbUsuario)){
         if(password_verify($clave, $dbUsuario[0]['clave'])){
+          // $admin = $dbUsuario[0]['admin']
           $_SESSION["Usuario"] = $usuario;
+          $_SESSION["Admin"] = $dbUsuario[0]['admin'] /*==1*/ ? true : false;
           header(SHOPPINGADMIN);
         }else{
           $this->view->MostrarLogin("Contraseña Incorrecta");

@@ -13,7 +13,7 @@
   <form method="post" class="form-inline my-2 my-lg-0" action="logout">
     <button class="logout login btn btn-outline-success my-2 my-sm-0">Logout</button>
   </form>
-  <p><img class="icono" src="images/Homero.jpg" alt="Perfil">Bienvenido de nuevo {$User}!</p>
+  <p><img class="icono" src="images/Homero.jpg" alt="Perfil">Bienvenido de nuevo {$User|capitalize}!</p>
   <div class="">
     <div class="table-personajes table-catadm">
       <table>
@@ -64,7 +64,7 @@
   <div class="formulario">
     <div class="formularioizq">
       <h3>Agregar Producto</h3>
-      <form method="post" action="agregarproducto">
+      <form method="post" action="agregarproducto" enctype="multipart/form-data">
         <input type="hidden" class="form-control" name="id_producto">
         <div class="form-group">
           <label for="producto">Producto</label>
@@ -82,16 +82,26 @@
             {/foreach}
           </select>
         </div>
+        <div class="form-group">
+          <label for="imagen">Imagen</label>
+          <br>
+          <input type="file" id="imagenes" name="imagenes[]">
+        </div>
         <button class="login btn btn-outline-success my-2 my-sm-0">Agregar</button>
       </form>
     </div>
     <div class="formularioder">
       <h3>Agregar Categoria</h3>
-      <form method="post" action="agregarcategoria">
+      <form method="post" action="agregarcategoria" enctype="multipart/form-data">
         <input type="hidden" class="form-control" name="id_categoria">
         <div class="form-group">
           <label for="tipo_producto">Tipo_producto</label>
           <input type="text" class="form-control" name="tipo_producto" placeholder="tipo_producto">
+        </div>
+        <div class="form-group">
+          <label for="imagen">Imagen</label>
+          <br>
+          <input type="file" id="imagenes" name="imagenes[]">
         </div>
         <button class="login btn btn-outline-success my-2 my-sm-0">Agregar</button>
       </form>
@@ -102,5 +112,6 @@
 <script src="js/main.js" charset="utf-8"></script>
 <script src="js/jquery.min.js" charset="utf-8"></script>
 <script src="js/bootstrap.min.js" charset="utf-8"></script>
+<script type="js/mainApi.js"></script>
 </body>
 </html>

@@ -21,7 +21,7 @@ class ProductosView
   function MostrarEditarProducto($Producto,$Categorias){
     $this->Smarty->assign('Producto',$Producto);
     $this->Smarty->assign('Categorias',$Categorias);
-    $this->Smarty->assign('shoppingadmin',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    $this->Smarty->assign('shoppingadmin',"http://".$_SERVER["SERVER_NAME"].':'.$_SERVER['SERVER_PORT'] . dirname($_SERVER["PHP_SELF"]));
     //$smarty->debugging = true;
     $this->Smarty->display('templates/MostrarEditarProducto.tpl');
   }

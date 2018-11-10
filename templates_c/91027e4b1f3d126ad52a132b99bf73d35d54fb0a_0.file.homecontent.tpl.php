@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-19 20:07:01
+/* Smarty version 3.1.33, created on 2018-10-23 17:07:44
   from 'C:\xampp\htdocs\tpespecial\WEB2\templates\homecontent.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bca1d457f51d4_49445912',
+  'unifunc' => 'content_5bcf39407e90d1_01799296',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bca1d457f51d4_49445912 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bcf39407e90d1_01799296 (Smarty_Internal_Template $_smarty_tpl) {
 ?>  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">

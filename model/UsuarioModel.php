@@ -22,9 +22,9 @@
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function InsertarUsuario($user, $clave){
-      $sentencia = $this->db->prepare("INSERT INTO usuario(user,clave) VALUES(?,?))");
-      $sentencia->execute(array($user,$clave));
+    function InsertarUsuario($user, $clave, $admin){
+      $sentencia = $this->db->prepare("INSERT INTO usuario(user,clave,admin) VALUES(?,?,?))");
+      $sentencia->execute(array($user,$clave,$admin));
     }
 
     function GetUser($user){

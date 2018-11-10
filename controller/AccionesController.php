@@ -51,6 +51,7 @@ class AccionesController
     session_start();
     if(isset($_SESSION["Usuario"])){
       $user = $_SESSION["Usuario"];
+
       $productos = $this->modelp->GetProductos();
       $categorias = $this->modelc->GetCategorias();
       $this->viewp->MostrarTablas($categorias,$productos,$user);
@@ -71,6 +72,7 @@ class AccionesController
   function Producto($param){
     $producto = $this->modelp->GetProductoSelecionado($param[0],$param[1]);
     $this->view->MostrarProducto($producto);
+
   }
 }
 ?>

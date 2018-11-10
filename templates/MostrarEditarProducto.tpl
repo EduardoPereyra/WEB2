@@ -27,6 +27,12 @@
           {/foreach}
         </select>
       </div>
+      {if}
+      <div class="form-group">
+        <label for="imagen">Imagen</label>
+        <input type="file" id="imagenes" name="imagenes[]">
+      </div>
+      {/if}
       <button class="login btn btn-outline-success my-2 my-sm-0">Editar Producto</button>
   </form>
 </body>

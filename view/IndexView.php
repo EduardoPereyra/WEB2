@@ -3,7 +3,6 @@ require_once('libs/Smarty.class.php');
 
 class IndexView
 {
-
     function MostrarHome(){
       $smarty = new Smarty();
       $smarty->display('templates/index.tpl');
@@ -51,21 +50,21 @@ class IndexView
       $smarty->assign('Productos',$productos);
       $smarty->assign('Id_categoria',$id_categoria);
       $smarty->assign('Categoria',$categoria);
-      $smarty->assign('Raiz', 'http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      $smarty->assign('Raiz', 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT']. dirname($_SERVER['PHP_SELF']));
       $smarty->display('templates/categoria.tpl');
     }
 
     function MostrarProducto($producto){
       $smarty = new Smarty();
       $smarty->assign('Producto',$producto);
-      $smarty->assign('Raiz', 'http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      $smarty->assign('Raiz','http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT']. dirname($_SERVER['PHP_SELF']));
       $smarty->display('templates/producto.tpl');
     }
 
     function MostrarTablaOrdenada($tabla){
       $smarty = new Smarty();
       $smarty->assign('Tabla',$tabla);
-      $smarty->assign('Raiz', 'http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      $smarty->assign('Raiz','http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT']. dirname($_SERVER['PHP_SELF']));
       $smarty->display('templates/tablaordenada.tpl');
     }
 }
