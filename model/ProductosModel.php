@@ -60,10 +60,10 @@ class ProductosModel
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function GetProductoSelecionado($id_producto,$id_categoria){
-    $sentencia = $this->db->prepare("SELECT p.id_producto, p.producto,p.precio,c.id_categoria,c.tipo_producto AS categoria FROM producto p, categoria c WHERE p.id_producto = ? AND c.id_categoria = ?");
-    $sentencia->execute(array($id_producto,$id_categoria));
-    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  function GetProductoSelecionado($id_producto){
+    $sentencia = $this->db->prepare("SELECT p.id_producto, p.producto,p.precio,c.id_categoria,c.tipo_producto AS categoria FROM producto p, categoria c WHERE p.id_categoria = c.id_categoria AND p.id_producto = ?");
+    $sentencia->execute(array($id_producto));
+    return $sentencia->fetch(PDO::FETCH_ASSOC);
   }
 
 }

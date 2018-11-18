@@ -70,7 +70,7 @@ class AccionesController
   }
 
   function Producto($param){
-    $producto = $this->modelp->GetProductoSelecionado($param[0],$param[1]);
+    $producto = $this->modelp->GetProductoSelecionado($param[0]);
     $this->view->MostrarProducto($producto);
 
   }

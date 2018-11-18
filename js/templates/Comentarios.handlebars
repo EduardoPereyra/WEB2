@@ -1,5 +1,7 @@
-<tr class="list-group">
- {{#each Comentarios}}
-     <td class="list-group-item">{{mensaje}}</td>
+{{#each Comentarios}}
+  <tr>
+    <td>{{id_usuario}}</td>
+    <td>{{mensaje}}</td>
+    <td>{{puntuacion}}</td>
+  </tr>
  {{/each}}
-</tr>

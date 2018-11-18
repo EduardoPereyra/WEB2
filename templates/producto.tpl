@@ -14,6 +14,7 @@
     <button class="logout login btn btn-outline-success my-2 my-sm-0">Volver</button>
   </form>
   <div class="table-personajes">
+    <input type="hidden" id="idproducto" value="{$Producto['id_producto']}">
     <table>
       <thead>
         <tr>
@@ -26,18 +27,23 @@
       </thead>
       <tbody>
         <tr>
-          {foreach from=$Producto item=fila}
-          <td>{$fila['categoria']}</td>
-          <td>{$fila['producto']}</td>
-          <td>$ {$fila['precio']}</td>
-          <td>{$fila['id_producto']}</td>
+          <td>{$Producto['categoria']}</td>
+          <td>{$Producto['producto']}</td>
+          <td>$ {$Producto['precio']}</td>
+          <td>{$Producto['id_producto']}</td>
           <td>5901234123457</td>
         </tr>
-        {/foreach}
       </tbody>
     </table>
-    <table id="comentarios-container">
+    <table class="table-comentarios">
+      <thead>
+        <th>Id Usuario</th>
+        <th>Comentario</th>
+        <th>Puntuacion</th>
+      </thead>
+      <tbody id="comentarios-container">
 
+      </tbody>
     </table>
     <img class="juguetes-decoraciones" src="images/juguetes-decoraciones.png" alt="juguetes-decoraciones">
     <img class="accesorios" src="images/accesorios.jpg" alt="accesorios">
@@ -45,9 +51,8 @@
   </div>
 <footer class="pie">&copy Wiki-Simpsons SA</footer>
 <script src="js/handlebars.js" charset="utf-8"></script>
-<script src="js/main.js" charset="utf-8"></script>
-<script src="js/mainApi.js" charset="utf-8"></script>
 <script src="js/jquery.min.js" charset="utf-8"></script>
 <script src="js/bootstrap.min.js" charset="utf-8"></script>
+<script src="js/mainApi.js" charset="utf-8"></script>
 </body>
 </html>

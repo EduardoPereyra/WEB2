@@ -16,13 +16,12 @@
           {foreach from=$Tabla item=fila}
           <td>{$fila['categoria']}</td>
           <td>{$fila['producto']}</td>
-          <td><a href="verproducto/{$fila['id_producto']}/{$fila['id_categoria']}">Ver</a></td>
+          <td><a href="verproducto/{$fila['id_producto']}">Ver</a></td>
         </tr>
         {/foreach}
       </tbody>
     </table>
     </div>
-
     <div class="table-personajes table-prodadm">
       <table>
         <thead>

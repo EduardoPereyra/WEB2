@@ -16,21 +16,21 @@ class ComentariosModel
   }
 
   function GetComentarios(){
-      $sentencia = $this->db->prepare( "SELECT * FROM comentario");
+      $sentencia = $this->db->prepare("SELECT * FROM comentario");
       $sentencia->execute();
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function GetComentario($id_comentario){
-      $sentencia = $this->db->prepare( "SELECT * FROM comentario WHERE id_comentario=?");
-      $sentencia->execute(array($id_comentario));
-      return $sentencia->fetch(PDO::FETCH_ASSOC);
+  function GetComentariosbyproducto($id_producto){
+      $sentencia = $this->db->prepare("SELECT * FROM comentario WHERE id_producto=?");
+      $sentencia->execute(array($id_producto));
+      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
 
-  function AgregarComentario($comentario, $id_producto, $id_usuario){
+  function AgregarComentario($mensaje, $id_producto, $id_usuario){
     $sentencia = $this->db->prepare("INSERT INTO comentario(mensaje, id_producto, id_usuario) VALUES(?,?,?)");
-    $sentencia->execute(array($comentario,$id_producto,$id_usuario));
+    $sentencia->execute(array($mensaje,$id_producto,$id_usuario));
   }
 
   function BorrarComentario($id_comentario){

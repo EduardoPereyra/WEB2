@@ -10,32 +10,18 @@ class ApiController extends Api{
     $this->model = new ComentariosModel();
   }
 
-  function GetComentarios($param = null){
-    if(isset($param)){
-        $id_comentario = $param[0];
-        $arreglo = $this->model->GetComentario($id_comentario);
-        $data = $arreglo;
-    }else{
-      $data = $this->model->GetComentarios();
-    }
+  function GetComentarios(){
+      if(isset($_GET['id_producto'])){
+        $id_producto = $_GET['id_producto'];
+        $data = $this->model->GetComentariosbyproducto($id_producto);
+      }else{
+        $data = $this->model->GetComentarios();
+      }
       if(isset($data)){
         return $this->json_response($data, 200);
       }else{
         return $this->json_response(null, 404);
       }
-  }
-
-  function DeleteComentario($param = null){
-    if(count($param) == 1){
-        $id_comentario = $param[0];
-        $r =  $this->model->BorrarComentario($id_comentario);
-        if($r == false){
-          return $this->json_response($r, 300);
-        }
-        return $this->json_response($r, 200);
-    }else{
-      return  $this->json_response("No task specified", 300);
-    }
   }
 
   function InsertComentario($param = null){
