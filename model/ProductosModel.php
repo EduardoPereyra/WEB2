@@ -33,9 +33,10 @@ class ProductosModel
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function AgregarProducto($producto,$precio,$id_categoria){
-    $sentencia = $this->db->prepare("INSERT INTO producto(producto, precio, id_categoria) VALUES(?,?,?)");
-    $sentencia->execute(array($producto,$precio,$id_categoria));
+  function AgregarProducto($producto,$precio,$id_categoria,$tempPath){
+    $path = $this->subirImagen($tempPath);
+    $sentencia = $this->db->prepare("INSERT INTO producto(producto, precio, id_categoria,imagen) VALUES(?,?,?,?)");
+    $sentencia->execute(array($producto,$precio,$id_categoria,$path));
   }
 
   function BorrarProducto($id_producto){
@@ -64,6 +65,12 @@ class ProductosModel
     $sentencia = $this->db->prepare("SELECT p.id_producto, p.producto,p.precio,c.id_categoria,c.tipo_producto AS categoria FROM producto p, categoria c WHERE p.id_categoria = c.id_categoria AND p.id_producto = ?");
     $sentencia->execute(array($id_producto));
     return $sentencia->fetch(PDO::FETCH_ASSOC);
+  }
+
+  private function subirImagen($imagen){
+      $destino_final = 'images/' . uniqid() . '.jpg';
+      move_uploaded_file($imagen, $destino_final);
+      return $destino_final;
   }
 
 }

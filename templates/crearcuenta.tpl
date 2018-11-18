@@ -9,17 +9,17 @@
   <link rel="shortcut icon" href="images/minidona.ico">
 </head>
 <body>
+  <form method="post" class="form-inline my-2 my-lg-0" action="home">
+    <button class="logout login btn btn-outline-success my-2 my-sm-0">Volver</button>
+  </form>
   <div class="contenedor-login">
-    <form method="post" class="form-inline my-2 my-lg-0" action="verificarlogin">
+    <form method="post" class="form-inline my-2 my-lg-0" action="crearcuenta">
       <input class="form-control mr-sm-2" type="text" name="usuarioId" placeholder="Usuario">
       <input class="form-control mr-sm-2" type="password" name="claveId" placeholder="Clave">
-      <button class="login btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+      <button class="login btn btn-outline-success my-2 my-sm-0" type="submit">Crear Cuenta</button>
     </form>
     <p>{$message}</p>
   </div>
-  <form action="creadorcuenta" method="post">
-    <button class="login btn btn-outline-success my-2 my-sm-0" type="submit">Crear Cuenta</button>
-  </form>
 </body>
 <footer class="pie">&copy Wiki-Simpsons SA</footer>
 <script src="js/main.js" charset="utf-8"></script>

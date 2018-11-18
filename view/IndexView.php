@@ -45,11 +45,10 @@ class IndexView
       $smarty->display('templates/iniciojuego.tpl');
     }
 
-    function MostrarCategoria($id_categoria,$categoria,$productos){
+    function MostrarCategoria($id_categoria,$productos){
       $smarty = new Smarty();
       $smarty->assign('Productos',$productos);
       $smarty->assign('Id_categoria',$id_categoria);
-      $smarty->assign('Categoria',$categoria);
       $smarty->assign('Raiz', 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT']. dirname($_SERVER['PHP_SELF']));
       $smarty->display('templates/categoria.tpl');
     }

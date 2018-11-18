@@ -14,6 +14,11 @@ class LoginView
     $this->Smarty->assign('message',$message);
     $this->Smarty->display('templates/login.tpl');
   }
+
+  function MostrarCrearCuenta($message = ''){
+    $this->Smarty->assign('message',$message);
+    $this->Smarty->display('templates/crearcuenta.tpl');
+  }
 }
 
 

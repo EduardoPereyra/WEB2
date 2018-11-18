@@ -30,7 +30,7 @@ class CategoriasController
     session_start();
     if(isset($_SESSION["Usuario"])){
       $tipo_producto = $_POST["tipo_producto"];
-      if(($tipo_producto)!== ""){
+      if(isset($tipo_producto)){
         $this->model->AgregarCategoria($tipo_producto);
       }
       header(SHOPPINGADMIN);
@@ -44,7 +44,7 @@ class CategoriasController
     if(isset($_SESSION["Usuario"])){
       $id_categoria = $_POST["id_categoria"];
       $tipo_producto = $_POST["tipo_producto"];
-      if(($id_categoria!== "")&&($tipo_producto !== "")){
+      if((isset($id_categoria))&&(isset($tipo_producto))){
         $this->model->GuardarEditarCategoria($id_categoria,$tipo_producto);
       }
 
@@ -63,7 +63,7 @@ class CategoriasController
       header(LOGIN);
     }
   }
-  
+
 }
 
  ?>

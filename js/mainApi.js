@@ -58,12 +58,17 @@ function eliminarComentario(id) {
   }).catch(error => console.log(error))
 }
 
-function crearComentario() {
-  //Agarrar los values del formulario
+function crearComentario() { //falta acomodar esto
+  let id_producto = document.querySelector('id_producto').value;
+  let mensaje = document.querySelector('mensaje');
+  let puntuacion = document.querySelector('puntuacion').value;
+  let id_usuario = document.querySelector('#idusuario')
 
   let ComentarioJson = {
-    "Usuario": usuario,
-    "Comentario": comentario
+    "mensaje": mensaje,
+    "id_producto": id_producto,
+    "id_usuario": id_usuario,
+    "puntuacion": puntuacion
   }
   let thing  = {
     thing : ComentarioJson

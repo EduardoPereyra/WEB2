@@ -35,8 +35,9 @@ class ProductosController
       $producto = $_POST["producto"];
       $precio = $_POST["precio"];
       $id_categoria = $_POST["id_categoria"];
-      if(($producto !== "")&&($precio !== "")&&($id_categoria !== "")&&($precio > 0)){
-        $this->model->AgregarProducto($producto,$precio,$id_categoria);
+      $rutaTempImagenes = $_FILES['imagen']['tmp_name'];
+      if((isset($producto))&&(isset($precio))&&(isset($id_categoria))&&($precio > 0)){
+        $this->model->AgregarProducto($producto,$precio,$id_categoria,$rutaTempImagenes[0]);
       }
       header(SHOPPINGADMIN);
     }else{
@@ -51,7 +52,7 @@ class ProductosController
       $producto = $_POST["producto"];
       $precio = $_POST["precio"];
       $id_categoria = $_POST["id_categoria"];
-      if(($id_producto !== "")&&($producto !== "")&&($precio !== "")&&($id_categoria !== "")&&($precio > 0)){
+      if((isset($id_producto))&&(isset($producto))&&(isset($precio))&&(isset($id_categoria))&&($precio > 0)){
         $this->model->GuardarEditarProducto($producto,$precio,$id_categoria,$id_producto);
       }
       header(SHOPPINGADMIN);

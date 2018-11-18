@@ -15,53 +15,6 @@
     <button class="logout login btn btn-outline-success my-2 my-sm-0">Logout</button>
   </form>
   <p><img class="icono" src="images/Homero.jpg" alt="Perfil">Bienvenido de nuevo {$User|capitalize}!</p>
-  <div class="">
-    <div class="table-personajes table-catadm">
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Id Categoria</th>
-            <th scope="col">Tipo de Producto</th>
-            <th scope="col">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            {foreach from=$Categorias item=categoria}
-            <td>{$categoria['id_categoria']}</td>
-            <td>{$categoria['tipo_producto']}</td>
-            <td><a href="editarcategoria/{$categoria['id_categoria']}">Editar</a> <a href="borrarcategoria/{$categoria['id_categoria']}">Borrar</a></td>
-          </tr>
-          {/foreach}
-        </tbody>
-      </table>
-    </div>
-    <br>
-    <div class="table-personajes table-prodadm">
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Id Producto</th>
-            <th scope="col">Producto</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Id Categoria</th>
-            <th scope="col">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            {foreach from=$Productos item=producto}
-            <td>{$producto['id_producto']}</td>
-            <td>{$producto['producto']}</td>
-            <td>$ {$producto['precio']}</td>
-            <td>{$producto['id_categoria']}</td>
-            <td><a href="editarproducto/{$producto['id_producto']}">Editar</a> <a href="borrarproducto/{$producto['id_producto']}">Borrar</a></td>
-          </tr>
-          {/foreach}
-        </tbody>
-      </table>
-    </div>
-  </div>
   <div class="formulario">
     <div class="formularioizq">
       <h3>Agregar Producto</h3>
@@ -86,7 +39,7 @@
         <div class="form-group">
           <label for="imagen">Imagen</label>
           <br>
-          <input type="file" id="imagenes" name="imagenes[]">
+          <input type="file" id="imagen" name="imagen[]">
         </div>
         <button class="login btn btn-outline-success my-2 my-sm-0">Agregar</button>
       </form>
@@ -109,8 +62,8 @@
     </div>
     <div class="formularioder">
       <h3>Agregar Comentario</h3>
-      <form method="post" action="agregarcomentario">
-        <input type="hidden" class="form-control" name="id_producto">
+      <form>
+        <input type="hidden" id="idusuario" value="usarsmartyparaverelidusuario">
         <div class="form-group">
           <label for="mensaje">Mensaje</label>
           <input type="text" class="form-control" name="mensaje" placeholder="Mensaje">
@@ -133,26 +86,79 @@
             <option value="5" selected>5</option>
           </select>
         </div>
+        <div class="g-recaptcha" data-sitekey="6LdawXkUAAAAAH3qsTta-hGJ-DZpZMvJAhpGyaJO"></div>
         <button class="js-CrearComentario login btn btn-outline-success my-2 my-sm-0">Agregar</button>
       </form>
     </div>
   </div>
-  <table class="table-comentarios">
-    <thead>
-      <th>Id Usuario</th>
-      <th>Comentario</th>
-      <th>Puntuacion</th>
-      <th>Borrar</th>
-    </thead>
-    <tbody id="comentarios-container">
+  <div class="">
+    <div class="table-personajes table-catadm">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Id Categoria</th>
+            <th scope="col">Tipo de Producto</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {foreach from=$Categorias item=categoria}
+            <td>{$categoria['id_categoria']}</td>
+            <td>{$categoria['tipo_producto']}</td>
+            <td><a href="verproductos/{$categoria['id_categoria']}">Ver Productos</a> - <a href="editarcategoria/{$categoria['id_categoria']}">Editar</a> - <a href="borrarcategoria/{$categoria['id_categoria']}">Borrar</a></td>
+          </tr>
+          {/foreach}
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <div class="table-personajes table-prodadm">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Id Producto</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Id Categoria</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {foreach from=$Productos item=producto}
+            <td>{$producto['id_producto']}</td>
+            <td>{$producto['producto']}</td>
+            <td>$ {$producto['precio']}</td>
+            <td>{$producto['id_categoria']}</td>
+            <td>{$producto['imagen']}</td>
+            <td><a href="editarproducto/{$producto['id_producto']}">Editar</a> <a href="borrarproducto/{$producto['id_producto']}">Borrar</a></td>
+          </tr>
+          {/foreach}
+        </tbody>
+      </table>
+    </div>
+  <div class="table-personajes table-comentarios">
+    <table>
+      <thead>
+        <th>Id Usuario</th>
+        <th>Comentario</th>
+        <th>Puntuacion</th>
+        <th>Borrar</th>
+      </thead>
+      <tbody id="comentarios-container">
 
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  </div>
+</div>
 </body>
 <footer class="pie">&copy Wiki-Simpsons SA</footer>
 <script src="js/handlebars.js" charset="utf-8"></script>
 <script src="js/jquery.min.js" charset="utf-8"></script>
 <script src="js/bootstrap.min.js" charset="utf-8"></script>
 <script src="js/mainApi.js" charset="utf-8"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
 </html>

@@ -43,14 +43,36 @@ class LoginController
           $_SESSION["Admin"] = $dbUsuario[0]['admin']? true : false;
           header(SHOPPINGADMIN);
         }else{
-          $this->view->MostrarLogin("Contraseña Incorrecta");
+          $this->view->MostrarLogin("Contraseña Incorrecta.");
         }
       }else{
-        $this->view->MostrarLogin("Usuario Incorrecto");
+        $this->view->MostrarLogin("Usuario Incorrecto.");
       }
     }else{
-      $this->view->MostrarLogin("Debe Ingresarse Primero");
+      $this->view->MostrarLogin("Debe Ingresarse Primero.");
     }
   }
+
+  function CreadorCuenta(){
+    $this->view->MostrarCrearCuenta();
+  }
+
+  function CrearCuenta(){
+    if(null !== ($_POST['usuarioId']) && null !== ($_POST['claveId'])){
+        $user = $_POST['usuarioId'];
+        if(null !== $this->model->getUser($user)){
+          $clave = $_POST['claveId'];
+          $hash = password_hash($clave, PASSWORD_DEFAULT);
+          $this->model->InsertarUsuario($user,$clave,0);
+          $this->VerificarLogin();
+        }else{
+          $this->view->MostrarLogin("Ese usuario ya existe.");
+        }
+    }else{
+      $this->view->MostrarLogin("Debe Ingresarse Primero.");
+    }
+  }
+
+
 }
 ?>
