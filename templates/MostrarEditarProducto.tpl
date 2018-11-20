@@ -9,7 +9,7 @@
   <link rel="shortcut icon" href="../images/minidona.ico">
 </head>
 <body>
-  <form method="post" action="{$shoppingadmin}/guardareditarproducto">
+  <form method="post" action="{$shoppingadmin}/guardareditarproducto" enctype="multipart/form-data">
     <input type="hidden" class="form-control" name="id_producto" value="{$Producto["id_producto"]}">
     <div class="form-group">
       <label for="producto">Producto</label>
@@ -27,12 +27,26 @@
           {/foreach}
         </select>
       </div>
-      {if}
+      <div class="table-personajes form-group">
+        <table>
+          <tr>
+            <th>Imagen</th>
+            <th>Borrar</th>
+          </tr>
+          {foreach from=$Imagenes item=imagen}
+          <tr>
+            <td><img src="../{$imagen['source']}" alt="Image"></td>
+            <td><a class="btn btn-danger" href="{$shoppingadmin}/eliminarimagen/{$imagen['id_imagen']}">Borrar</a></td>
+          </tr>
+          {/foreach}
+        </table>
+
+      </div>
       <div class="form-group">
         <label for="imagen">Imagen</label>
-        <input type="file" id="imagenes" name="imagenes[]">
+        <br>
+        <input type="file" id="imagen" name="imagen[]">
       </div>
-      {/if}
       <button class="login btn btn-outline-success my-2 my-sm-0">Editar Producto</button>
   </form>
 </body>

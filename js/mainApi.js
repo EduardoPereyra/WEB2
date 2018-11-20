@@ -40,9 +40,9 @@ function getComentarios(id, urlc) {
   });
 }
 
-function eliminarComentario(id) {
+function eliminarComentario(pos) {
   let comentarios = document.querySelector("#comentarios-container");
-  console.log("Elimino comentario pos: " + id);
+  console.log("Elimino comentario pos: " + pos);
   fetch(url).then(r => r.json()).then(function(json){
     let _id = json.id_comentario;
     fetch(url+"/"+_id,{

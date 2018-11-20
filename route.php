@@ -5,6 +5,7 @@ require_once "controller\AccionesController.php";
 require_once "controller\LoginController.php";
 require_once "controller\ProductosController.php";
 require_once "controller\CategoriasController.php";
+require_once "controller\ImagenesController.php";
 
 function parseURL($url)
 {

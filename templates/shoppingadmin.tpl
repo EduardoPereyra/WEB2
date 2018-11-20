@@ -52,11 +52,6 @@
           <label for="tipo_producto">Tipo de Producto</label>
           <input type="text" class="form-control" name="tipo_producto" placeholder="Tipo de Producto">
         </div>
-        <div class="form-group">
-          <label for="imagen">Imagen</label>
-          <br>
-          <input type="file" id="imagenes" name="imagenes[]">
-        </div>
         <button class="login btn btn-outline-success my-2 my-sm-0">Agregar</button>
       </form>
     </div>
@@ -86,7 +81,6 @@
             <option value="5" selected>5</option>
           </select>
         </div>
-        <div class="g-recaptcha" data-sitekey="6LdawXkUAAAAAH3qsTta-hGJ-DZpZMvJAhpGyaJO"></div>
         <button class="js-CrearComentario login btn btn-outline-success my-2 my-sm-0">Agregar</button>
       </form>
     </div>
@@ -121,7 +115,7 @@
             <th scope="col">Producto</th>
             <th scope="col">Precio</th>
             <th scope="col">Id Categoria</th>
-            <th scope="col">Imagen</th>
+            <th scope="col">Imagenes</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>
@@ -132,7 +126,27 @@
             <td>{$producto['producto']}</td>
             <td>$ {$producto['precio']}</td>
             <td>{$producto['id_categoria']}</td>
-            <td>{$producto['imagen']}</td>
+            <td>
+              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  {foreach from=$Imagenes item=imagen}
+                  {if $imagen['id_producto'] == $producto['id_producto']}
+                  <div class="carousel-item">
+                    <img class="imagenproducto" src="{$imagen['source']}" alt="Imagen">
+                  </div>
+                  {/if}
+                  {/foreach}
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </td>
             <td><a href="editarproducto/{$producto['id_producto']}">Editar</a> <a href="borrarproducto/{$producto['id_producto']}">Borrar</a></td>
           </tr>
           {/foreach}

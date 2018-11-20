@@ -60,16 +60,16 @@ class LoginController
   function CrearCuenta(){
     if(null !== ($_POST['usuarioId']) && null !== ($_POST['claveId'])){
         $user = $_POST['usuarioId'];
-        if(null !== $this->model->getUser($user)){
+        if(null == $this->model->getUser($user)){
           $clave = $_POST['claveId'];
           $hash = password_hash($clave, PASSWORD_DEFAULT);
-          $this->model->InsertarUsuario($user,$clave,0);
+          $this->model->InsertarUsuario($user,$hash,0);
           $this->VerificarLogin();
         }else{
-          $this->view->MostrarLogin("Ese usuario ya existe.");
+          $this->view->MostrarCrearCuenta("Ese usuario ya existe.");
         }
     }else{
-      $this->view->MostrarLogin("Debe Ingresarse Primero.");
+      $this->view->MostrarCrearCuenta("Debe Ingresarse Primero.");
     }
   }
 

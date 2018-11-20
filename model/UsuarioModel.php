@@ -23,7 +23,7 @@
     }
 
     function InsertarUsuario($user, $clave, $admin){
-      $sentencia = $this->db->prepare("INSERT INTO usuario(user,clave,admin) VALUES(?,?,?))");
+      $sentencia = $this->db->prepare("INSERT INTO usuario(user,clave,admin) VALUES(?,?,?)");
       $sentencia->execute(array($user,$clave,$admin));
     }
 

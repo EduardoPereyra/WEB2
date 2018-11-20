@@ -4,6 +4,7 @@ require_once "./view/CategoriasView.php";
 require_once "./view/ProductosView.php";
 require_once "./model/CategoriasModel.php";
 require_once "./model/ProductosModel.php";
+require_once "./model/ImagenesModel.php";
 
 class AccionesController
 {
@@ -12,6 +13,7 @@ class AccionesController
   private $modelp;
   private $viewc;
   private $modelc;
+  private $modeli;
 
   function __construct()
   {
@@ -20,6 +22,7 @@ class AccionesController
     $this->modelp = new ProductosModel();
     $this->viewc = new CategoriasView();
     $this->modelc = new CategoriasModel();
+    $this->modeli = new ImagenesModel();
   }
 
   function Home(){
@@ -54,7 +57,8 @@ class AccionesController
 
       $productos = $this->modelp->GetProductos();
       $categorias = $this->modelc->GetCategorias();
-      $this->viewp->MostrarTablas($categorias,$productos,$user);
+      $imagenes= $this->modeli->GetImagenes();
+      $this->viewp->MostrarTablas($categorias,$productos,$user,$imagenes);
     }else{
       header(LOGIN);
     }
@@ -62,7 +66,7 @@ class AccionesController
 
   function Juego(){
     $this->view->MostrarJuego();
-  }
+  } 
 
   function TablaOrdenada(){
     $tabla = $this->modelp->GetTablaOrdenada();

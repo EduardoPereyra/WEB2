@@ -35,7 +35,8 @@ define('SHOPPINGADMIN', 'Location: http://'.$_SERVER["SERVER_NAME"] .':'.$_SERVE
       'verproducto' => 'AccionesController#Producto',
       'creadorcuenta' => 'LoginController#CreadorCuenta',
       'crearcuenta' => 'LoginController#CrearCuenta',
-      'verproductos' => 'AccionesController#Categoria'
+      'verproductos' => 'AccionesController#Categoria',
+      'eliminarimagen' => 'ImagenesController#BorrarImagen'
     ];
   }
 ?>
