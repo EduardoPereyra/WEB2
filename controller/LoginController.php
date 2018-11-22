@@ -41,6 +41,7 @@ class LoginController
           // $admin = $dbUsuario[0]['admin']
           $_SESSION["Usuario"] = $usuario;
           $_SESSION["Admin"] = $dbUsuario[0]['admin']? true : false;
+          $_SESSION["idUsuario"] = $dbUsuario[0]['id_usuario'];
           header(SHOPPINGADMIN);
         }else{
           $this->view->MostrarLogin("Contraseña Incorrecta.");

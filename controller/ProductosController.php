@@ -42,7 +42,9 @@ class ProductosController
       $rutaTempImagen = $_FILES['imagen']['tmp_name'];
       if((isset($producto))&&(isset($precio))&&(isset($id_categoria))&&($precio > 0)){
         $lastId = $this->model->AgregarProducto($producto,$precio,$id_categoria);
-        $this->modeli->AgregarImagen($rutaTempImagen[0],$lastId);
+        if($_SESSION["Admin"] == true){
+          $this->modeli->AgregarImagen($rutaTempImagen[0],$lastId);
+        }
       }
       header(SHOPPINGADMIN);
     }else{

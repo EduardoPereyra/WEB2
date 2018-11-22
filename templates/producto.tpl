@@ -35,11 +35,16 @@
         </tr>
       </tbody>
     </table>
-    <table class="table-comentarios">
+  </div>
+  <br>
+    <div class="table-personajes">
+    <table>
       <thead>
         <th>Id Usuario</th>
+        <th>Id Producto</th>
         <th>Comentario</th>
         <th>Puntuacion</th>
+        <th>NO BORRA</th>
       </thead>
       <tbody id="comentarios-container">
 

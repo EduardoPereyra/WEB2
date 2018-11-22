@@ -54,11 +54,11 @@ class AccionesController
     session_start();
     if(isset($_SESSION["Usuario"])){
       $user = $_SESSION["Usuario"];
-
+      $admin = $_SESSION["Admin"];
       $productos = $this->modelp->GetProductos();
       $categorias = $this->modelc->GetCategorias();
       $imagenes= $this->modeli->GetImagenes();
-      $this->viewp->MostrarTablas($categorias,$productos,$user,$imagenes);
+      $this->viewp->MostrarTablas($categorias,$productos,$user,$admin,$imagenes);
     }else{
       header(LOGIN);
     }
@@ -66,7 +66,7 @@ class AccionesController
 
   function Juego(){
     $this->view->MostrarJuego();
-  } 
+  }
 
   function TablaOrdenada(){
     $tabla = $this->modelp->GetTablaOrdenada();

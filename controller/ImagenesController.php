@@ -17,7 +17,9 @@ class ImagenesController
   function BorrarImagen($param){
     session_start();
     if(isset($_SESSION["Usuario"])){
-      $this->model->BorrarImagen($param[0]);
+      if($_SESSION["Admin"] == true){
+        $this->model->BorrarImagen($param[0]);
+      }
       header(SHOPPINGADMIN);
     }else{
       header(LOGIN);

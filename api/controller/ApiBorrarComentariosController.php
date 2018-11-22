@@ -13,7 +13,7 @@ class ApiBorrarComentariosController extends ApiSecuredController{
     $this->UsuarioModel = new UsuarioModel();
   }
   function DeleteComentario($param = null){
-    // if ($this->Logueado() && $this->esAdmin()) {
+    if ($this->Logueado() && $this->esAdmin()) {
       if(count($param) == 1){
           $id_comentario = $param[0];
           $r =  $this->ComentariosModel->BorrarComentario($id_comentario);
@@ -24,7 +24,7 @@ class ApiBorrarComentariosController extends ApiSecuredController{
       }else{
         return  $this->json_response("No task specified", 300);
       }
-   // }
+   }
   }
 }
  ?>

@@ -1,10 +1,11 @@
 {{#each Comentarios}}
   <tr>
     <td>{{id_usuario}}</td>
+    <td>{{id_producto}}</td>
     <td>{{mensaje}}</td>
     <td>{{puntuacion}}</td>
     <td>
-      <button class='js-EliminarComentario botoneliminar btn btn-outline-danger' type='button'></button>
+      <button class='js-EliminarComentario botoneliminar btn btn-outline-danger' value="{{id_comentario}}" type='button'></button>
     </td>
   </tr>
  {{/each}}

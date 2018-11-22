@@ -20,7 +20,7 @@ function verComentarios(){
       let urlc = `${url}?${searchParams}`;
       getComentarios(id, urlc);
     }
-    //setTimeout(verComentarios(),2000);
+    let timer = setTimeout(verComentarios, 2000);
   });
 }
 
@@ -46,43 +46,46 @@ function eliminarComentario(pos) {
   fetch(url).then(r => r.json()).then(function(json){
     let _id = json.id_comentario;
     fetch(url+"/"+_id,{
-      method:"DELETE",
-      mode: 'cors',
-      headers:{
+      'method':"DELETE",
+      'mode': 'cors',
+      'headers':{
         "Content-Type":"application/json"
       }
     }).then(function (json) {
-        getComentariosAdmin();
+        verComentarios();
     }).catch(e => {console.log(e)
     })
   }).catch(error => console.log(error))
 }
 
-function crearComentario() { //falta acomodar esto
-  let id_producto = document.querySelector('id_producto').value;
-  let mensaje = document.querySelector('mensaje');
-  let puntuacion = document.querySelector('puntuacion').value;
-  let id_usuario = document.querySelector('#idusuario')
+function crearComentario() {
+  console.log("entro");
+  let id_producto = document.querySelector('#id_producto').value;
+  let mensaje = document.querySelector('#mensaje').value;
+  let puntuacion = document.querySelector('#puntuacion').value;
+  let id_usuario = document.querySelector('#idusuario').getAttribute("data");
 
-  let ComentarioJson = {
+  let comentario = {
     "mensaje": mensaje,
+    "puntuacion": puntuacion,
     "id_producto": id_producto,
-    "id_usuario": id_usuario,
-    "puntuacion": puntuacion
+    "id_usuario": id_usuario
   }
-  let thing  = {
-    thing : ComentarioJson
-  }
+
+console.log(comentario);
   fetch(url,{
-    method:"POST",
-    mode: 'cors',
-    headers:{
-      "Content-Type":"application/json"
-    },
-    "body":JSON.stringify(thing)
-  }).then(function (json) {
-    getComentariosAdmin();
-  }).catch(e => console.log(e))
+    'method':"POST",
+    'mode': 'cors',
+    'headers':{"Content-Type":"application/json"},
+    "body":JSON.stringify(comentario)
+  }).then(r => {
+    if(r.ok){
+      r.json().then(t => {
+        console.log("Se cargo con éxito");
+        verComentarios();
+      })
+    }
+  })
 }
 
 function mostrarComentarios(jsonComentarios) {
@@ -98,8 +101,8 @@ function mostrarComentarios(jsonComentarios) {
 function agregarFuncionBoton() {
   let botonCrearComentario = document.querySelectorAll(".js-CrearComentario");
   botonCrearComentario.forEach(e=> e.addEventListener("click", crearComentario));
-  let botonEliminarComentario = document.querySelectorAll(".js-EliminarComentario");
-  for(let j = 0; j < botonEliminarComentario.length; j++){
-    botonEliminarComentario[j].addEventListener("click", c => eliminarComentario(j));
-  }
+  // let botonEliminarComentario = document.querySelectorAll(".js-EliminarComentario");
+  // for(let j = 0; j < botonEliminarComentario.length; j++){
+  //   botonEliminarComentario[j].addEventListener("click", c => eliminarComentario(j));
+  // }
 }

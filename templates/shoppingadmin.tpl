@@ -15,6 +15,11 @@
     <button class="logout login btn btn-outline-success my-2 my-sm-0">Logout</button>
   </form>
   <p><img class="icono" src="images/Homero.jpg" alt="Perfil">Bienvenido de nuevo {$User|capitalize}!</p>
+  {if $Admin == true}
+  <p>Su cuenta es Admin</p>
+  {else}
+  <p>Su cuenta no es Admin</p>
+  {/if}
   <div class="formulario">
     <div class="formularioizq">
       <h3>Agregar Producto</h3>
@@ -58,14 +63,14 @@
     <div class="formularioder">
       <h3>Agregar Comentario</h3>
       <form>
-        <input type="hidden" id="idusuario" value="usarsmartyparaverelidusuario">
+        <input type="hidden" id="idusuario" data="{$smarty.session.idUsuario}">
         <div class="form-group">
           <label for="mensaje">Mensaje</label>
-          <input type="text" class="form-control" name="mensaje" placeholder="Mensaje">
+          <input id="mensaje" type="text" class="form-control" name="mensaje" placeholder="Mensaje">
         </div>
         <div class="form-group">
           <label for="id_producto">Producto</label>
-          <select name="id_producto" class="form-control">
+          <select id="id_producto" name="id_producto" class="form-control">
             {foreach from=$Productos item=producto}
             <option value="{$producto['id_producto']}">{$producto['producto']}</option>
             {/foreach}
@@ -73,7 +78,7 @@
         </div>
         <div class="form-group col-md-4">
           <label for="puntuacion">Puntuacion</label>
-          <select name="puntuacion" class="form-control">
+          <select id="puntuacion" name="puntuacion" class="form-control">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -81,7 +86,7 @@
             <option value="5" selected>5</option>
           </select>
         </div>
-        <button class="js-CrearComentario login btn btn-outline-success my-2 my-sm-0">Agregar</button>
+        <button type="button" class="js-CrearComentario login btn btn-outline-success my-2 my-sm-0" name="crearComentario">Agregar</button>
       </form>
     </div>
   </div>
@@ -157,6 +162,7 @@
     <table>
       <thead>
         <th>Id Usuario</th>
+        <th>Id Producto</th>
         <th>Comentario</th>
         <th>Puntuacion</th>
         <th>Borrar</th>
