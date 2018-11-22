@@ -24,10 +24,11 @@ class ProductosController
       session_start();
       if(isset($_SESSION["Usuario"])){
         $id_producto = $param[0];
+        $admin = $_SESSION["Admin"];
         $categorias = $this->modelc->GetCategorias();
         $producto = $this->model->GetProducto($id_producto);
         $imagenes = $this->modeli->GetImagenesProducto($id_producto);
-        $this->view->MostrarEditarProducto($producto,$categorias,$imagenes);
+        $this->view->MostrarEditarProducto($producto,$categorias,$imagenes,$admin);
       }else{
         header(LOGIN);
       }
@@ -62,7 +63,7 @@ class ProductosController
       $rutaTempImagen = $_FILES['imagen']['tmp_name'];
       if((isset($id_producto))&&(isset($producto))&&(isset($precio))&&(isset($id_categoria))&&($precio > 0)){
         $this->model->GuardarEditarProducto($producto,$precio,$id_categoria,$id_producto);
-        if($_SESSION["Admin"] == true){
+        if(($_SESSION["Admin"] == true)&&(isset($rutaTempImagen[0]))){
           $this->modeli->AgregarImagen($rutaTempImagen[0],$id_producto);
         }
       }
