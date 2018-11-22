@@ -136,10 +136,13 @@
             <td>
               <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="..." alt="Imagen">
+                  </div>
                   {foreach from=$Imagenes item=imagen}
                   {if $imagen['id_producto'] == $producto['id_producto']}
                   <div class="carousel-item">
-                    <img class="imagenproducto" src="{$imagen['source']}" alt="Imagen">
+                    <img src="{$imagen['source']}" alt="Imagen">
                   </div>
                   {/if}
                   {/foreach}

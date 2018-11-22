@@ -53,9 +53,10 @@ class IndexView
       $smarty->display('templates/categoria.tpl');
     }
 
-    function MostrarProducto($producto){
+    function MostrarProducto($producto,$imagenes){
       $smarty = new Smarty();
       $smarty->assign('Producto',$producto);
+      $smarty->assign('Imagenes',$imagenes);
       $smarty->assign('Raiz','http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT']. dirname($_SERVER['PHP_SELF']));
       $smarty->display('templates/producto.tpl');
     }

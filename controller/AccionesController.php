@@ -74,8 +74,9 @@ class AccionesController
   }
 
   function Producto($param){
+    $imagenes= $this->modeli->GetImagenesProducto($param[0]);
     $producto = $this->modelp->GetProductoSelecionado($param[0]);
-    $this->view->MostrarProducto($producto);
+    $this->view->MostrarProducto($producto,$imagenes);
   }
 
   function Categoria($param){

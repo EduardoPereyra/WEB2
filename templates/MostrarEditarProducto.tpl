@@ -40,7 +40,6 @@
           </tr>
           {/foreach}
         </table>
-
       </div>
       <div class="form-group">
         <label for="imagen">Imagen</label>

@@ -37,7 +37,20 @@
     </table>
   </div>
   <br>
-    <div class="table-personajes">
+  <div class="table-personajes form-group">
+    <table>
+      <tr>
+        <th>Imagen</th>
+      </tr>
+      {foreach from=$Imagenes item=imagen}
+      <tr>
+        <td><img src="{$imagen['source']}" alt="Image"></td>
+      </tr>
+      {/foreach}
+    </table>
+  </div>
+  <br>
+  <div class="table-personajes">
     <table>
       <thead>
         <th>Id Usuario</th>
