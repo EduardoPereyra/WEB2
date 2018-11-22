@@ -62,7 +62,9 @@ class ProductosController
       $rutaTempImagen = $_FILES['imagen']['tmp_name'];
       if((isset($id_producto))&&(isset($producto))&&(isset($precio))&&(isset($id_categoria))&&($precio > 0)){
         $this->model->GuardarEditarProducto($producto,$precio,$id_categoria,$id_producto);
-        $this->modeli->AgregarImagen($rutaTempImagen[0],$id_producto);
+        if($_SESSION["Admin"] == true){
+          $this->modeli->AgregarImagen($rutaTempImagen[0],$id_producto);
+        }
       }
       header(SHOPPINGADMIN);
     }else{

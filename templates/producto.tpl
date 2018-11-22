@@ -44,7 +44,7 @@
         <th>Id Producto</th>
         <th>Comentario</th>
         <th>Puntuacion</th>
-        <th>NO BORRA</th>
+        <th class="text-danger">Debe ser Admin</th>
       </thead>
       <tbody id="comentarios-container">
 

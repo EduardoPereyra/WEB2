@@ -26,7 +26,7 @@ class ApiController extends Api{
 
   function InsertComentario($param = null){
     $objetoJson = $this->getJSONData();
-    $r = $this->model->InsertarComentario($objetoJson->Comentario);
+    $r = $this->model->AgregarComentario($objetoJson->mensaje,$objetoJson->id_producto,$objetoJson->id_usuario,$objetoJson->puntuacion);
     return $this->json_response($r, 200);
   }
 }

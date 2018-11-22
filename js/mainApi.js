@@ -40,22 +40,18 @@ function getComentarios(id, urlc) {
   });
 }
 
-function eliminarComentario(pos) {
-  let comentarios = document.querySelector("#comentarios-container");
-  console.log("Elimino comentario pos: " + pos);
-  fetch(url).then(r => r.json()).then(function(json){
-    let _id = json.id_comentario;
-    fetch(url+"/"+_id,{
+function eliminarComentario(id_comentario) {
+  console.log("Elimino comentario id: " + id_comentario);
+    fetch(url+"/"+id_comentario,{
       'method':"DELETE",
       'mode': 'cors',
       'headers':{
-        "Content-Type":"application/json"
+      "Content-Type":"application/json"
       }
-    }).then(function (json) {
-        verComentarios();
-    }).catch(e => {console.log(e)
+    }).then(r =>
+        verComentarios()
+      ).catch(e => {console.log(e)
     })
-  }).catch(error => console.log(error))
 }
 
 function crearComentario() {
@@ -72,16 +68,18 @@ function crearComentario() {
     "id_usuario": id_usuario
   }
 
-console.log(comentario);
-  fetch(url,{
+  console.log(comentario);
+  fetch(url, {
     'method':"POST",
     'mode': 'cors',
     'headers':{"Content-Type":"application/json"},
     "body":JSON.stringify(comentario)
-  }).then(r => {
+  })
+  .then(r => {
+    console.log(r);
     if(r.ok){
       r.json().then(t => {
-        console.log("Se cargo con éxito");
+        console.log("Se creo con éxito");
         verComentarios();
       })
     }
@@ -101,8 +99,8 @@ function mostrarComentarios(jsonComentarios) {
 function agregarFuncionBoton() {
   let botonCrearComentario = document.querySelectorAll(".js-CrearComentario");
   botonCrearComentario.forEach(e=> e.addEventListener("click", crearComentario));
-  // let botonEliminarComentario = document.querySelectorAll(".js-EliminarComentario");
-  // for(let j = 0; j < botonEliminarComentario.length; j++){
-  //   botonEliminarComentario[j].addEventListener("click", c => eliminarComentario(j));
-  // }
+  let botonEliminarComentario = document.querySelectorAll(".js-EliminarComentario");
+  botonEliminarComentario.forEach(botonEliminarComentario => {botonEliminarComentario.addEventListener("click",function(){
+    eliminarComentario(botonEliminarComentario.getAttribute("data"))});
+  });
 }

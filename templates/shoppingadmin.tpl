@@ -41,11 +41,13 @@
             {/foreach}
           </select>
         </div>
+        {if $Admin == true}
         <div class="form-group">
           <label for="imagen">Imagen</label>
           <br>
           <input type="file" id="imagen" name="imagen[]">
         </div>
+        {/if}
         <button class="login btn btn-outline-success my-2 my-sm-0">Agregar</button>
       </form>
     </div>

@@ -28,9 +28,9 @@ class ComentariosModel
   }
 
 
-  function AgregarComentario($mensaje, $id_producto, $id_usuario){
-    $sentencia = $this->db->prepare("INSERT INTO comentario(mensaje, id_producto, id_usuario) VALUES(?,?,?)");
-    $sentencia->execute(array($mensaje,$id_producto,$id_usuario));
+  function AgregarComentario($mensaje, $id_producto, $id_usuario,$puntuacion){
+    $sentencia = $this->db->prepare("INSERT INTO comentario(mensaje, id_producto, id_usuario, puntuacion) VALUES(?,?,?,?)");
+    $sentencia->execute(array($mensaje,$id_producto,$id_usuario,$puntuacion));
   }
 
   function BorrarComentario($id_comentario){
